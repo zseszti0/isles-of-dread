@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rpg.css">
+    <title>RPG</title>
+</head>
+<body>
+    <div id = "title">
+        <h1>Isles of Dread</h1>
+        <h2>Fighting the monster called destiny</h2>
+    </div>
+    <div id = "mainMenu">
+        <div id = "newgame" onclick = "newGame()">New Game</div>
+        <div id = "loadgame" onclick = "logIn()">Load Game</div>
+    </div>
+    <div id = "info">
+        <div id = "accountlogin">
+            <form action="login.php">
+                <input placeholder="Username" type="text" name="username" id="username"><br>
+                <input placeholder="Password" type="password" name="password" id="password">
+            </form>
+            <div onclick = "signUp()" id = "noaccount">I don't have an account</div>
+        </div>
+        <div id = "accountsignup">
+            <form action="signup.php">
+                <input placeholder="Username" type="text" name="username" id="username"><br>
+                <input placeholder="Password" type="password" name="password" id="password">
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

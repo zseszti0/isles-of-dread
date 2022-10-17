@@ -1,0 +1,58 @@
+body{
+    background-image:url(Fantasy_background.jpg);
+    background-size:100%;
+    cursor:default
+}
+h1{
+    text-align:center;
+    color:black;
+    text-shadow: -0.3vmin 0 white, 0 0.3vmin white, 0.3vmin 0 white, 0 -0.3vmin white;
+    font-family:papyrus;
+    font-size: 12vmin;
+    margin-bottom: 0;
+}
+h2{
+    text-align:center;
+    color:black;
+    text-shadow: -0.3vmin 0 white, 0 0.3vmin white, 0.3vmin 0 white, 0 -0.3vmin white;
+    font-family:papyrus;
+    font-size: 5vmin;
+    margin-top: 0;
+}
+#newgame, #loadgame{
+    font-family:papyrus;
+    color:rgb(85, 0, 0);
+    text-shadow: -0.1vmin 0 rgb(139, 0, 0), 0 0.1vmin rgb(139, 0, 0), 0.1vmin 0 rgb(139, 0, 0), 0 -0.1vmin rgb(139, 0, 0);
+    width:fit-content;
+    margin:auto;
+    font-weight: 1000;
+    font-size: 7vmin;
+    padding-bottom: 3vmin;
+    padding-top: 3vmin;
+    transition:scale 0.3s;
+}
+#newgame:hover, #loadgame:hover{
+    scale:1.2;
+    cursor:pointer;
+}
+#info{
+    display:none;
+    margin:auto;
+    text-align:center;
+}
+#noaccount{
+    width:max-content;
+    margin:auto;
+    text-align:center;
+    color:black;
+    text-shadow: -0.3vmin 0 white, 0 0.3vmin white, 0.3vmin 0 white, 0 -0.3vmin white;
+    font-family:papyrus;
+    font-size: 5vmin;
+}
+#noaccount:hover{
+    cursor:pointer;
+    scale: 1.2;
+}
+input{
+    margin-bottom: 5vh;
+}
