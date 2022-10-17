@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="rpg.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Shalimar">
     <title>RPG</title>
 </head>
 <body>
@@ -18,17 +19,21 @@
     </div>
     <div id = "info">
         <div id = "accountlogin">
+            <p id="logText">Log into your account</p>
             <form action="login.php">
                 <input placeholder="Username" type="text" name="username" id="username"><br>
                 <input placeholder="Password" type="password" name="password" id="password">
             </form>
+            <button>Log in</button>
             <div onclick = "signUp()" id = "noaccount">I don't have an account</div>
         </div>
         <div id = "accountsignup">
+            <p id="signText">Make an account</p>
             <form action="signup.php">
                 <input placeholder="Username" type="text" name="username" id="username"><br>
                 <input placeholder="Password" type="password" name="password" id="password">
             </form>
+            <button>Sign up</button>
         </div>
     </div>
     <script src="script.js"></script>
