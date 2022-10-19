@@ -1,4 +1,6 @@
-let pos = 5
+let pos = 0
+let enemyHP = 1000
+
 const graph = [[1,3,4],
 [0,4,5,6,2],
 [1,4,5,6],
@@ -60,6 +62,41 @@ const graph = [[1,3,4],
 
 //if id in graph[current pos]{id.style.DISPLAY = "block"} :heart_eyes:
 
+
+function foAlgoritmus(holVagyok)
+{
+    pos = holVagyok
+    console.log(pos)
+    document.getElementById("container").style.display = "none"
+
+    document.getElementById("protog").style.display = "block"
+    document.getElementById("bg").style.display = "block"
+    document.getElementById("enemy").style.display = "block"
+    document.getElementById("skill").style.display = "block"
+
+    document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
+    document.getElementById("enemy").src = "enemy/crab.png"
+
+}
+function skill(){
+    enemyHP -= 900
+    console.log(enemyHP)
+    if (enemyHP<0)
+    {
+        ShowMap()
+    }
+}
+function ShowMap(){
+
+    document.getElementById("container").style.display = "block"
+
+    document.getElementById("skill").style.display = "none"
+    document.getElementById("bg").style.display = "none"
+    document.getElementById("protog").style.display = "none"
+    document.getElementById("enemy").style.display = "none"
+    elerheto()
+}
+
 function elerheto() {
     document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
@@ -70,15 +107,7 @@ function elerheto() {
     }
 }
 
-function Main()
-{
-
-    window.open("https://www.bet365.com/olp/open-account?affiliate=365_01023649&rdk=rk4")
-}
-
-elerheto()
-
-
+ShowMap()
 
 
 
