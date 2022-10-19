@@ -37,7 +37,6 @@ h2{
     cursor:pointer;
 }
 #info{
-    display:none;
     margin:auto;
     text-align:center;
 }
@@ -47,16 +46,39 @@ h2{
     text-align:center;
     color:black;
     text-shadow: -0.3vmin 0 white, 0 0.3vmin white, 0.3vmin 0 white, 0 -0.3vmin white;
-    font-size: 5vmin;
+    font-size: 3vmin;
 }
 #noaccount:hover{
     cursor:pointer;
-    scale: 1.2;
+    scale: 1.1;
 }
 input{
     margin-bottom: 5vh;
 }
-
 p {
     font-size: 3vmin;
+}
+.savefiles{
+    background-color: rgb(211, 211, 211);
+    width: 5vw;
+    flex-grow: 1;
+    margin:2vmin;
+    opacity:80%;
+    transition:scale 0.1s;
+    border-radius:1vmin;
+    text-align:center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    font-size:10vmin;
+    margin-top:10vh;
+    border:1vmin solid rgb(27, 27, 27);
+}
+.savefiles:hover{
+    scale:1.1;
+    opacity:90%;
+}
+#savefiles{
+    display:none;
+    margin-left:30vw;;
+    margin-right:30vw;
 }
