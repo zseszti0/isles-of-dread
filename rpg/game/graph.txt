@@ -56,3 +56,51 @@
 [51,56],
 [51,52,55],
 [44,46,49,51]
+
+
+function elerheto() {
+
+    for (let i = 0; i < graph[pos].length; i++)
+    {
+        document.getElementById(graph[pos][i]).style.display="block";
+    }
+}
+
+elerheto()
+
+<map name="workmap">
+    <area class="areaclass"shape="circle" coords="425,100,20" onclick="javascipt:void(0)" > <!--kezdo--> <!--eslo sor-->
+    <area class="areaclass"shape="circle" coords="492,100,20" onclick="javascipt:void(0)" >
+    <area class="areaclass"shape="circle" coords="560,100,20" href="" > <!-- masodik sor -->
+    <area class="areaclass"shape="circle" coords="420,150,20" href="" >
+    <area class="areaclass"shape="circle" coords="492,140,20" href="" >
+    <area class="areaclass"shape="circle" coords="560,146,20" href="" id = "5"> <!-- harmadik sor-->
+    <area class="areaclass"shape="circle" coords="625,150,20" href="" id = "6">
+    <area class="areaclass"shape="circle" coords="335,200,20" href="" id = "7">
+    <area class="areaclass"shape="circle" coords="465,200,20" href="" id = "8">
+    <area class="areaclass"shape="circle" coords="555,200,20" href="" id = "9">
+    <area class="areaclass"shape="circle" coords="705,200,20" href="" id = "10">
+    <area class="areaclass"shape="circle" coords="400,250,20" href="" id = "11">
+    <area class="areaclass"shape="circle" coords="520,250,20" href="" id = "12">
+    <area class="areaclass"shape="circle" coords="665,250,20" href="" id = "13">
+
+    <area class="areaclass"shape="circle" coords="785,255,20" href="" id = "15">
+    <area class="areaclass"shape="circle" coords="440,300,20" href="" id = "16">
+    <area class="areaclass"shape="circle" coords="613,265,20" href="" id = "17">
+    <area class="areaclass"shape="circle" coords="300,320,20" href="" id = "18">
+    <area class="areaclass"shape="circle" coords="712,341,20" href="" id = "19">
+    <area class="areaclass"shape="circle" coords="200,360,20" href="" id = "20"> 
+
+    <area class="areaclass"shape="circle" coords="268,371,20" href="" id = "22"><!--barlang bejárat-->
+    <area class="areaclass"shape="circle" coords="490,358,20" href="" id = "23">
+    <area class="areaclass"shape="circle" coords="810,345,20" href="" id = "24">
+    <area class="areaclass"shape="circle" coords="767,363,20" href="" id = "25">
+    <area class="areaclass"shape="circle" coords="360,430,20" href="" id = "26">
+    <area class="areaclass"shape="circle" coords="560,350,20" href="" id = "27">
+    <area class="areaclass"shape="circle" coords="480,430,20" href="" id = "28">
+    <area class="areaclass"shape="circle" coords="600,428,20" href="" id = "29">
+    <area class="areaclass"shape="circle" coords="650,400,20" href="" id = "30">
+    <area class="areaclass"shape="circle" coords="703,428,20" href="" id = "31">
+    <area class="areaclass"shape="circle" coords="766,428,20" href="" id = "32">
+    <area class="areaclass"shape="circle" coords="876,454,20" href="" id = "33">
+</map>

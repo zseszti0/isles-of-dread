@@ -5,35 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="points.css">
 
     <style>
         body {
-            cursor: url("cursor_x.png");
-            background-color: rgb(64, 82, 86);
+            cursor: default;
         }
-        div {
-            height: 10px;
-            width: 30px;
-            background-color: aqua;
-        }
-
     </style>
 </head>
 <body>
-    <img src="map.png" alt="Workplace" usemap="#workmap" width="1000px">
+    <div id="container" style="width: 1000px;">
+        <img id="map" src="map.png" width="1000px">
+        
+        <div class="point" id="a0" onclick="Main()"></div>
+        <div class="point" id="a1" onclick="Main()"></div>
+        <div class="point" id="a2" onclick="Main()"></div>
+        <div class="point" id="a3" onclick="Main()"></div>
+        <div class="point" id="a4" onclick="Main()"></div>
+        <div class="point" id="a5" onclick="Main()"></div> 
+        <div class="point" id="a6" onclick="Main()"></div> 
+        <div class="point" id="a7" onclick="Main()"></div> 
+        <div class="point" id="a8" onclick="Main()"></div> 
+        <div class="point" id="a9" onclick="Main()"></div> 
+        <div class="point" id="a10" onclick="Main()"></div> 
+        <div class="point" id="a11" onclick="Main()"></div> 
+        <div class="point" id="a12" onclick="Main()"></div> 
+        <div class="point" id="a13" onclick="Main()"></div> 
+        <div class="point" id="a14" onclick="Main()"></div> 
+        <div class="point" id="a15" onclick="Main()"></div> 
+        <div class="point" id="a16" onclick="Main()"></div> 
+        <div class="point" id="a17" onclick="Main()"></div> 
+        <div class="point" id="a18" onclick="Main()"></div> 
+        <div class="point" id="a19" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a20" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a21" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a22" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a23" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a24" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a25" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a26" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a27" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a28" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a29" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a30" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a32" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a31" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a33" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a34" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a35" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a36" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a37" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a38" onclick="javascript:void(0)"></div> 
+        <div class="point" id="a39" onclick="javascript:void(0)"></div>
+        <div class="point" id="a40" onclick="javascript:void(0)"></div>
+        <div class="point" id="a41" onclick="javascript:void(0)"></div>
+        <div class="point" id="a42" onclick="javascript:void(0)"></div>
+        <div class="point" id="a43" onclick="javascript:void(0)"></div>
+        <div class="point" id="a44" onclick="javascript:void(0)"></div>
+        <div class="point" id="a45" onclick="javascript:void(0)"></div>
+        <div class="point" id="a46" onclick="javascript:void(0)"></div>
+        <div class="point" id="a47" onclick="javascript:void(0)"></div>
+        <div class="point" id="a48" onclick="javascript:void(0)"></div>
+        <div class="point" id="a49" onclick="javascript:void(0)"></div>
+        <div class="point" id="a50" onclick="javascript:void(0)"></div>
+        <div class="point" id="a51" onclick="javascript:void(0)"></div>
+        <div class="point" id="a52" onclick="javascript:void(0)"></div>
+        <div class="point" id="a53" onclick="javascript:void(0)"></div>
+        <div class="point" id="a54" onclick="javascript:void(0)"></div>
+        <div class="point" id="a55" onclick="javascript:void(0)"></div>
+        <div class="point" id="a56" onclick="javascript:void(0)"></div>
+        <div class="point" id="a57" onclick="javascript:void(0)"></div>
+        <div class="point" id="a58" onclick="javascript:void(0)"></div>
 
-    <map name="workmap">
-    <area shape="circle" coords="420,90,20" alt="Coffee" href="coffee.htm" id = "0"> <!--kezdo--> <!--eslo sor-->
-    <area shape="circle" coords="500,90,20" alt="Coffee" href="coffee.htm" id = "1">
-    <area shape="circle" coords="420,150,20" alt="Coffee" href="coffee.htm" id = "2"> <!-- masodik sor -->
-    <area shape="circle" coords="500,150,20" alt="Coffee" href="coffee.htm" id = "3">
-    <area shape="circle" coords="580,150,20" alt="Coffee" href="coffee.htm" id = "4">
-    <area shape="circle" coords="340,210,20" alt="Coffee" href="coffee.htm" id = "5"> <!-- harmadik sor-->
-    <area shape="circle" coords="420,210,20" alt="Coffee" href="coffee.htm" id = "6">
-    <area shape="circle" coords="500,210,20" alt="Coffee" href="coffee.htm" id = "7">
-    <area shape="circle" coords="580,210,20" alt="Coffee" href="coffee.htm" id = "8">
-    <area shape="circle" coords="660,210,20" alt="Coffee" href="coffee.htm" id = "9">
-</map>
-<script href = "map.js"></script>
+
+    </div>
+
+    <script src="map.js"></script>
+
 </body>
 </html>

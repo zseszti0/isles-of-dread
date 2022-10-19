@@ -1,4 +1,4 @@
-let pos = 0
+let pos = 5
 const graph = [[1,3,4],
 [0,4,5,6,2],
 [1,4,5,6],
@@ -57,17 +57,30 @@ const graph = [[1,3,4],
 [51,56],
 [51,52,55],
 [44,46,49,51]]
+
 //if id in graph[current pos]{id.style.DISPLAY = "block"} :heart_eyes:
 
-//document.getElementById("1").style.display="none";
-
 function elerheto() {
-    document.querySelectorAll("area").style.display = "none";
+    document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
     {
-        document.getElementById(graph[pos][i]).style.display="block";
+        document.getElementById("a"+graph[pos][i]).style.display="block";
+        document.getElementById("a"+graph[pos][i]).style.cursor="pointer";
+        document.getElementById("a"+graph[pos][i]).innerHTML="<b>X</b>"
     }
 }
+
+function Main()
+{
+
+    window.open("https://www.bet365.com/olp/open-account?affiliate=365_01023649&rdk=rk4")
+}
+
+elerheto()
+
+
+
+
 
 
 
