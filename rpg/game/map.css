@@ -3,7 +3,6 @@ body {
 }
 
 #bg {
-    margin: auto;
     margin-top: 10vh;
     width: 70vw;
     height: 70vh;
@@ -28,12 +27,76 @@ body {
     left: 600px;
 }
 
+#fight {
+    position: absolute;
+    top: 200px;
+    left: 300px;
+    width: 40vw;
+
+    animation: fightAnim 2s;
+    animation-fill-mode: forwards; 
+    animation-delay:block;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fightAnim {
+    0% {
+        margin-right: 300px;
+        opacity: 0;
+    }
+    40% {
+        margin-right: 100px;
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        margin-right: 120px;
+        opacity: 1;
+    }
+    100% {
+        margin-right: 0px;
+        opacity: 0;
+    }
+}
+
+#enemyHP {
+    position: absolute;
+    top: 200px;
+    left: 600px;
+}
+
 #skill {
     height: 10vh;
     width: 10vw;
     position: absolute;
     top: 300px;
     left: 100px;
-    background-color: rgb(101, 27, 27);
+    background-color: red;
 }
 
+#energy {
+    top: 250px;
+    left: 100px;
+    position: absolute;
+}
+
+#Cname {
+    top: 200px;
+    left: 100px;
+    position: absolute;
+}
+
+#dialougeBox {
+    position: absolute;
+    left: 5vw;
+    right: 5vw;
+    top: 52vh;
+    height: 10vh;
+    width: 60vw;
+    padding: 30px;
+    text-align: center;
+    background-color: aliceblue;
+    border: 3px solid black;
+}

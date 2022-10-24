@@ -1,5 +1,19 @@
 let pos = 0
-let enemyHP = 1000
+let enemyHP = 5000
+
+//base stats
+let Cname = "Barni a hős"
+let Atk = 130
+let Hp = 1000
+let Def = 10
+let Sgth = 1 //atk % szoró
+let Cd = 1.5 //% szoró
+let Cr = 1 
+let Speed = 2
+let Dodge = 0.1 //%szorzó
+let UltCost = 100 //max cost
+let Energy = 0
+
 
 const graph = [[1,3,4],
 [0,4,5,6,2],
@@ -61,31 +75,63 @@ const graph = [[1,3,4],
 [44,46,49,51]]
 
 //if id in graph[current pos]{id.style.DISPLAY = "block"} :heart_eyes:
+function MainE (holVagyok)
+{
+    LoadSceneE(holVagyok)
+    document.getElementById("dialougeBox").style.display = "block"
+    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!<br> >>YES"
+}
 
-
-function foAlgoritmus(holVagyok)
+function LoadSceneE(holVagyok)
 {
     pos = holVagyok
-    console.log(pos)
     document.getElementById("container").style.display = "none"
-
-    document.getElementById("protog").style.display = "block"
+    //map bejon enemyvel
     document.getElementById("bg").style.display = "block"
     document.getElementById("enemy").style.display = "block"
-    document.getElementById("skill").style.display = "block"
+    document.getElementById("protog").style.display = "block"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
     document.getElementById("enemy").src = "enemy/crab.png"
 
 }
+function BattleStart()
+{
+    document.getElementById("fight").style.display = "block"
+    setTimeout(() => {document.getElementById("fight").style.display = "none"}, 3000)
+    //document.getElementById("fight").style.display = "none"
+
+    document.getElementById("dialougeBox").style.display = "none"
+    document.getElementById("skill").style.display = "block"
+    
+    document.getElementById("enemyHP").innerHTML = enemyHP
+    document.getElementById("Cname").innerHTML = Cname
+    document.getElementById("energy").innerHTML = Energy
+}
+
 function skill(){
-    enemyHP -= 900
-    console.log(enemyHP)
+    var crit =  Math.floor(Math.random() * 10) + 1;
+    if (Cr >= crit)
+    {
+        enemyHP -= Atk*Sgth*Cd
+        Energy += 30
+        console.log("crit")
+
+    }
+    else
+    {
+        enemyHP -= Atk*Sgth
+        Energy += 20
+    }
+    document.getElementById("enemyHP").innerHTML = enemyHP
+    document.getElementById("energy").innerHTML = Energy
     if (enemyHP<0)
     {
         ShowMap()
     }
-}
+
+    }
+
 function ShowMap(){
 
     document.getElementById("container").style.display = "block"
@@ -94,6 +140,8 @@ function ShowMap(){
     document.getElementById("bg").style.display = "none"
     document.getElementById("protog").style.display = "none"
     document.getElementById("enemy").style.display = "none"
+    document.getElementById("dialougeBox").style.display = "none"
+    document.getElementById("fight").style.display = "none"
     elerheto()
 }
 
@@ -101,11 +149,12 @@ function elerheto() {
     document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
     {
-        document.getElementById("a"+graph[pos][i]).style.display="block";
-        document.getElementById("a"+graph[pos][i]).style.cursor="pointer";
+        document.getElementById("a"+graph[pos][i]).style.display="block"
+        document.getElementById("a"+graph[pos][i]).style.cursor="pointer"
         document.getElementById("a"+graph[pos][i]).innerHTML="<b>X</b>"
     }
 }
+
 
 ShowMap()
 
