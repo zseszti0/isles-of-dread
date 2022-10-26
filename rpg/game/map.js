@@ -93,6 +93,7 @@ function LoadSceneE(holVagyok)
     document.getElementById("bg").style.display = "block"
     document.getElementById("enemy").style.display = "block"
     document.getElementById("protog").style.display = "block"
+    document.getElementById("protog").style.animation= "Run 2s forwards"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
     document.getElementById("enemy").src = "enemy/crab.png"
@@ -150,6 +151,9 @@ function CoolDown(num, tf)
 }
 
 function skill1(){
+
+    document.getElementById("protog").style.animation= "Attack 2s forwards"
+
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
     {

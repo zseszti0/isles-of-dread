@@ -14,47 +14,6 @@ body {
     height: 40vh;
     position: absolute;
     bottom: 5vw;
-    animation: Run 2s;
-    animation-fill-mode: forwards; 
-    animation-delay:block;
-}
-@keyframes Run {
-    0% {
-        left: 0vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
-    12% {
-        left: 1vw;
-        content: url("knight/Knight_1/Run1.png");
-    }
-    25% {
-        left: 2vw;
-        content: url("knight/Knight_1/Run2.png");
-    }
-    37% {
-        left: 3vw;
-        content: url("knight/Knight_1/Run3.png");
-    }
-    50% {
-        left: 4vw;
-        content: url("knight/Knight_1/Run4.png");
-    }
-    62% {
-        left: 5vw;
-        content: url("knight/Knight_1/Run5.png");
-    }
-    75% {
-        left: 6vw;
-        content: url("knight/Knight_1/Run6.png");
-    }
-    87% {
-        left: 7vw;
-        content: url("knight/Knight_1/Run7.png");
-    }
-    100% {
-        left: 8vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
 }
 
 #battlefield {
@@ -186,5 +145,84 @@ body {
     }
     100% {
         opacity: 0;
+    }
+}
+
+
+@keyframes Run {
+    0% {
+        left: 0vw;
+        content: url("knight/Knight_1/Protect.png");
+    }
+    12% {
+        left: 1vw;
+        content: url("knight/Knight_1/Run1.png");
+    }
+    25% {
+        left: 2vw;
+        content: url("knight/Knight_1/Run2.png");
+    }
+    37% {
+        left: 3vw;
+        content: url("knight/Knight_1/Run3.png");
+    }
+    50% {
+        left: 4vw;
+        content: url("knight/Knight_1/Run4.png");
+    }
+    62% {
+        left: 5vw;
+        content: url("knight/Knight_1/Run5.png");
+    }
+    75% {
+        left: 6vw;
+        content: url("knight/Knight_1/Run6.png");
+    }
+    87% {
+        left: 7vw;
+        content: url("knight/Knight_1/Run7.png");
+    }
+    100% {
+        left: 8vw;
+        content: url("knight/Knight_1/Protect.png");
+    }
+}
+
+@keyframes Attack {
+    0% {
+        left: 8vw;
+        content: url("knight/Knight_1/Attack1.png");
+    }
+    12% {
+        left: 9vw;
+        content: url("knight/Knight_1/Attack2.png");
+    }
+    25% {
+        left: 10vw;
+        content: url("knight/Knight_1/Attack3.png");
+    }
+    37% {
+        left: 11vw;
+        content: url("knight/Knight_1/Attack4.png");
+    }
+    50% {
+        left: 16vw;
+        content: url("knight/Knight_1/Attack5.png");
+    }
+    62% {
+        left: 10vw;
+        content: url("knight/Knight_1/Attack3.png");
+    }
+    75% {
+        left: 9vw;
+        content: url("knight/Knight_1/Attack2.png");
+    }
+    87% {
+        left: 8vw;
+        content: url("knight/Knight_1/Attack1.png");
+    }
+    100% {
+        left: 8vw;
+        content: url("knight/Knight_1/Protect.png");
     }
 }
