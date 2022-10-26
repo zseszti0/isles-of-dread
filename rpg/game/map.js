@@ -1,5 +1,6 @@
 let pos = 0
 let enemyHP = 5000
+let TurnCount = 0
 
 //base stats
 let Cname = "Barni a hős"
@@ -79,7 +80,9 @@ function MainE (holVagyok)
 {
     LoadSceneE(holVagyok)
     document.getElementById("dialougeBox").style.display = "block"
-    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!<br> >>YES"
+    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!"
+
+    setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
 }
 
 function LoadSceneE(holVagyok)
@@ -102,14 +105,51 @@ function BattleStart()
     //document.getElementById("fight").style.display = "none"
 
     document.getElementById("dialougeBox").style.display = "none"
-    document.getElementById("skill").style.display = "block"
+
+    document.getElementById("skill1").style.display = "block"
+    document.getElementById("skill2").style.display = "block"
+    document.getElementById("skill3").style.display = "block"
+
+    document.getElementById("skill3CD").style.display = "block"
+    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
     
     document.getElementById("enemyHP").innerHTML = enemyHP
     document.getElementById("Cname").innerHTML = Cname
     document.getElementById("energy").innerHTML = Energy
+    turn()
+
 }
 
-function skill(){
+function turn()
+{
+    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
+    
+    //SKILL 1
+    CoolDown(1,"false")
+    //SKILL2
+    if (TurnCount % 2 == 0)
+    {
+        CoolDown(2,"false")
+    }
+    else {CoolDown(2,"true")}
+    //SKILL3 ULT
+    if (Energy >= UltCost)
+    {
+        CoolDown(3,"false")
+    }
+    else {CoolDown(3,"true")}
+
+    TurnCount += 1
+
+}
+
+function CoolDown(num, tf)
+{
+    document.getElementById("skill"+num).disabled = tf
+    document.getElementById("skill"+num).src = ("skill"+num+tf+".png")
+}
+
+function skill1(){
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
     {
@@ -129,19 +169,30 @@ function skill(){
     {
         ShowMap()
     }
+    enemyTurn()
+}
 
-    }
+function enemyTurn()
+{
+   console.log("bum bumm")
+    turn()
+}
 
 function ShowMap(){
 
     document.getElementById("container").style.display = "block"
 
-    document.getElementById("skill").style.display = "none"
+    document.getElementById("skill1").style.display = "none"
+    document.getElementById("skill2").style.display = "none"
+    document.getElementById("skill3").style.display = "none"
+    document.getElementById("skill3CD").style.display = "none"
+
     document.getElementById("bg").style.display = "none"
     document.getElementById("protog").style.display = "none"
     document.getElementById("enemy").style.display = "none"
     document.getElementById("dialougeBox").style.display = "none"
     document.getElementById("fight").style.display = "none"
+    document.getElementById("fightButton").style.display = "none"
     elerheto()
 }
 
@@ -155,6 +206,14 @@ function elerheto() {
     }
 }
 
+function skill2()
+{
+    console.log("skill2")
+}
+function skill3()
+{
+    console.log("skill3")
+}
 
 ShowMap()
 

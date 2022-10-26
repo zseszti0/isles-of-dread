@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
     <link rel="stylesheet" href="points.css">
     <link rel="stylesheet" href="map.css">
 </head>
 <body>
     <div id="battlefield">
         <img id="bg" src="">
+        <button onclick="BattleStart()" id="fightButton">FIGHT</button>
         <h2 id="Cname"></h2>
-        <img id="protog" src="brani.png">
+        <img id="protog" src="knight/Knight_1/Protect.png">
         <img id="enemy" src="">
         <h2 id="enemyHP"></h2>
-        <div id="skill" onclick="skill()"></div>
+        <div onclick="skill1()"><img id="skill1" src="skill1false.png"></div>
+        <div onclick="skill2()"><img id="skill2" src="skill2false.png"></div>
+        <div onclick="skill3()"><img id="skill3" src="skill3false.png"></div>
+        <div><img id="skill3CD" src="skill3CD.png"></div>
         <h2 id="energy"></h2>
-        <div id="dialougeBox" onclick="BattleStart()"><h2 id="story"></h2></div>
+        <div id="dialougeBox"><h2 id="story"></h2></div>
         <img id="fight" src="fight.png">
     </div>
     

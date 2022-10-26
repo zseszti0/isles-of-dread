@@ -1,5 +1,6 @@
 body {
     cursor: default;
+    background: url("texture.png");
 }
 
 #bg {
@@ -10,11 +11,52 @@ body {
 }
 
 #protog {
-    height: 25vh;
+    height: 40vh;
     position: absolute;
-    top: 300px;
-    left: 100px;
+    bottom: 5vw;
+    animation: Run 2s;
+    animation-fill-mode: forwards; 
+    animation-delay:block;
 }
+@keyframes Run {
+    0% {
+        left: 0vw;
+        content: url("knight/Knight_1/Protect.png");
+    }
+    12% {
+        left: 1vw;
+        content: url("knight/Knight_1/Run1.png");
+    }
+    25% {
+        left: 2vw;
+        content: url("knight/Knight_1/Run2.png");
+    }
+    37% {
+        left: 3vw;
+        content: url("knight/Knight_1/Run3.png");
+    }
+    50% {
+        left: 4vw;
+        content: url("knight/Knight_1/Run4.png");
+    }
+    62% {
+        left: 5vw;
+        content: url("knight/Knight_1/Run5.png");
+    }
+    75% {
+        left: 6vw;
+        content: url("knight/Knight_1/Run6.png");
+    }
+    87% {
+        left: 7vw;
+        content: url("knight/Knight_1/Run7.png");
+    }
+    100% {
+        left: 8vw;
+        content: url("knight/Knight_1/Protect.png");
+    }
+}
+
 #battlefield {
     position: relative;
     display: inline-block;
@@ -23,7 +65,7 @@ body {
 #enemy {
     height: 25vh;
     position: absolute;
-    top: 300px;
+    bottom: 6vh;
     left: 600px;
 }
 
@@ -65,24 +107,48 @@ body {
     position: absolute;
     top: 200px;
     left: 600px;
+    font-family: 'Common Pixel', sans-serif;
 }
 
-#skill {
-    height: 10vh;
-    width: 10vw;
+#skill1 {
+    height: 7vh;
     position: absolute;
-    top: 300px;
-    left: 100px;
-    background-color: red;
+    left: 2vw;
+    bottom: 30vh;
+}
+#skill2 {
+    height: 7vh;
+    position: absolute;
+    left: 8vw;
+    bottom: 30vh;
+}
+#skill3 {
+    height: 11vh;
+    position: absolute;
+    left: 4vw;
+    bottom: 17vh;
+}
+#skill3CD {
+    width: 11vh;
+    position: absolute;
+    left: 4vw;
+    bottom: 17vh;
 }
 
 #energy {
     top: 250px;
     left: 100px;
     position: absolute;
+    font-family: 'Common Pixel', sans-serif;
 }
 
 #Cname {
+    top: 200px;
+    left: 100px;
+    position: absolute;
+    font-family: 'Common Pixel', sans-serif;
+}
+#fightButton {
     top: 200px;
     left: 100px;
     position: absolute;
@@ -92,11 +158,33 @@ body {
     position: absolute;
     left: 5vw;
     right: 5vw;
-    top: 52vh;
-    height: 10vh;
+    bottom: 5vh;
+    height: 7vh;
     width: 60vw;
-    padding: 30px;
     text-align: center;
     background-color: aliceblue;
     border: 3px solid black;
+    font-family: 'Common Pixel', sans-serif;
+
+    animation: dialBox 1s;
+    animation-fill-mode: forwards; 
+    animation-delay:1.5s;
+}
+
+@keyframes dialBox {
+    0% {
+        opacity: 1;
+    }
+    79% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
