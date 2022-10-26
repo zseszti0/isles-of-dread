@@ -1,5 +1,5 @@
 let pos = 0
-let enemyHP = 5000
+let enemyHP = 1000
 let TurnCount = 0
 
 //base stats
@@ -101,6 +101,7 @@ function LoadSceneE(holVagyok)
 }
 function BattleStart()
 {
+    document.getElementById("fightButton").style.display = "none"
     document.getElementById("fight").style.display = "block"
     setTimeout(() => {document.getElementById("fight").style.display = "none"}, 3000)
     //document.getElementById("fight").style.display = "none"
@@ -116,6 +117,7 @@ function BattleStart()
     
     document.getElementById("enemyHP").innerHTML = enemyHP
     document.getElementById("Cname").innerHTML = Cname
+    document.getElementById("CHP").innerHTML = Hp
     document.getElementById("energy").innerHTML = Energy
     turn()
 
@@ -150,10 +152,39 @@ function CoolDown(num, tf)
     document.getElementById("skill"+num).src = ("skill"+num+tf+".png")
 }
 
-function skill1(){
+function skill2(){
 
+    document.getElementById("protog").style.animation= "Attack2 2s forwards"
+    console.log("anim1")
+
+    var crit =  Math.floor(Math.random() * 10) + 1;
+    if (Cr >= crit)
+    {
+        enemyHP -= (Atk*Sgth)*(1000/enemyHP)*Cd
+        console.log((1000/enemyHP))
+        Energy += 30
+        console.log("crit")
+    }
+    else
+    {
+        enemyHP -= Atk*Sgth*(1000/enemyHP)
+        console.log((5000/enemyHP))
+        Energy += 20
+    }
+
+    enemyHP = Math.round((enemyHP)*100)/100
+    document.getElementById("enemyHP").innerHTML = enemyHP
+    document.getElementById("energy").innerHTML = Energy
+    if (enemyHP<0)
+    {
+        ShowMap()
+    }
+    setTimeout(() => {enemyTurn()}, 3000)
+    console.log("enemy turn")
+}
+function skill1()
+{
     document.getElementById("protog").style.animation= "Attack 2s forwards"
-
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
     {
@@ -173,12 +204,16 @@ function skill1(){
     {
         ShowMap()
     }
-    enemyTurn()
+    setTimeout(() => {enemyTurn()}, 3000)
+    console.log("enemy turn")
 }
 
 function enemyTurn()
 {
-   console.log("bum bumm")
+    Hp -= 10
+    document.getElementById("enemy").style.animation= "EnemyAttack 2s forwards"
+    document.getElementById("protog").style.animation= "Defend 2s forwards"
+    document.getElementById("CHP").innerHTML = Hp
     turn()
 }
 
@@ -208,19 +243,18 @@ function elerheto() {
         document.getElementById("a"+graph[pos][i]).style.cursor="pointer"
         document.getElementById("a"+graph[pos][i]).innerHTML="<b>X</b>"
     }
+    
+    document.getElementById("a"+pos).style.cursor="default"
+    document.getElementById("a"+pos).style.display="block"
+    document.getElementById("a"+pos).innerHTML="<img class=MapSprite src=knight/Knight_1/Normal.png>"
 }
 
-function skill2()
-{
-    console.log("skill2")
-}
 function skill3()
 {
     console.log("skill3")
 }
 
 ShowMap()
-
 
 
 
