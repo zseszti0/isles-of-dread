@@ -1,7 +1,7 @@
 let pos = 0
 let enemyHP = 1000
 let TurnCount = 0
-
+let UsedInLastTurn = false
 //base stats
 let Cname = "Barni a hős"
 let Atk = 130
@@ -128,32 +128,47 @@ function turn()
     document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
     
     //SKILL 1
-    CoolDown(1,"false")
+    CoolDown(1,false)
+    console.log("skill1 van")
     //SKILL2
-    if (TurnCount % 2 == 0)
+    if(UsedInLastTurn)
     {
-        CoolDown(2,"false")
+        CoolDown(2,true)
+        console.log("nincs skill2")
     }
-    else {CoolDown(2,"true")}
+    else
+    {
+        CoolDown(2,false)
+        console.log("van skill2")
+    }
     //SKILL3 ULT
     if (Energy >= UltCost)
     {
-        CoolDown(3,"false")
+        CoolDown(3,false)
     }
-    else {CoolDown(3,"true")}
+    else {CoolDown(3,true)}
 
+    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
     TurnCount += 1
-
 }
+
+
 
 function CoolDown(num, tf)
 {
     document.getElementById("skill"+num).disabled = tf
-    document.getElementById("skill"+num).src = ("skill"+num+tf+".png")
+    console.log("disabled")
+
+    if(tf == true){document.getElementById("skill"+num).style.filter = "brightness(50%)";}
+    else{document.getElementById("skill"+num).style.filter = "brightness(100%)";}
+    //document.getElementById("skill"+num).style.filter = "contrast(70%)";
 }
 
 function skill2(){
-
+    UsedInLastTurn = true
+    
+    console.log("used in last turn = true")
+    
     document.getElementById("protog").style.animation= "Attack2 2s forwards"
     console.log("anim1")
 
@@ -184,6 +199,7 @@ function skill2(){
 }
 function skill1()
 {
+    UsedInLastTurn = false
     document.getElementById("protog").style.animation= "Attack 2s forwards"
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
@@ -251,11 +267,9 @@ function elerheto() {
 
 function skill3()
 {
+    UsedInLastTurn = false
     console.log("skill3")
+    enemyTurn()
 }
 
 ShowMap()
-
-
-
-

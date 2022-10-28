@@ -19,9 +19,11 @@
         <img id="protog" src="knight/Knight_1/Protect.png">
         <img id="enemy" src="">
         <h2 id="enemyHP"></h2>
-        <div><img id="skill1" onclick="skill1()" src="skill1false.png"></div>
-        <div><img id="skill2" onclick="skill2()" src="skill2false.png"></div>
-        <div><img id="skill3" onclick="skill3()" src="skill3false.png"></div>
+
+        <button id="skill1" onclick="skill1()" ></button>
+        <button id="skill2" onclick="skill2()" ></button>
+        <button id="skill3" onclick="skill3()" ></button>
+        
         <div><img id="skill3CD" src="skill3CD.png"></div>
         <h2 id="energy"></h2>
         <div id="dialougeBox"><h2 id="story"></h2></div>
@@ -45,56 +47,60 @@
         <div class="point" id="a11" onclick="MainE(11)"></div> 
         <div class="point" id="a12" onclick="MainE(12)"></div> 
         <div class="point" id="a13" onclick="MainE(13)"></div> 
-        <div class="point" id="a14" onclick="MainE()"></div> 
-        <div class="point" id="a15" onclick="MainE()"></div> 
-        <div class="point" id="a16" onclick="MainE()"></div> 
-        <div class="point" id="a17" onclick="MainE()"></div> 
-        <div class="point" id="a18" onclick="MainE()"></div> 
-        <div class="point" id="a19" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a20" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a21" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a22" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a23" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a24" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a25" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a26" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a27" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a28" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a29" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a30" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a32" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a31" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a33" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a34" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a35" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a36" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a37" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a38" onclick="javascript:void(0)"></div> 
-        <div class="point" id="a39" onclick="javascript:void(0)"></div>
-        <div class="point" id="a40" onclick="javascript:void(0)"></div>
-        <div class="point" id="a41" onclick="javascript:void(0)"></div>
-        <div class="point" id="a42" onclick="javascript:void(0)"></div>
-        <div class="point" id="a43" onclick="javascript:void(0)"></div>
-        <div class="point" id="a44" onclick="javascript:void(0)"></div>
-        <div class="point" id="a45" onclick="javascript:void(0)"></div>
-        <div class="point" id="a46" onclick="javascript:void(0)"></div>
-        <div class="point" id="a47" onclick="javascript:void(0)"></div>
-        <div class="point" id="a48" onclick="javascript:void(0)"></div>
-        <div class="point" id="a49" onclick="javascript:void(0)"></div>
-        <div class="point" id="a50" onclick="javascript:void(0)"></div>
-        <div class="point" id="a51" onclick="javascript:void(0)"></div>
-        <div class="point" id="a52" onclick="javascript:void(0)"></div>
-        <div class="point" id="a53" onclick="javascript:void(0)"></div>
-        <div class="point" id="a54" onclick="javascript:void(0)"></div>
-        <div class="point" id="a55" onclick="javascript:void(0)"></div>
-        <div class="point" id="a56" onclick="javascript:void(0)"></div>
-        <div class="point" id="a57" onclick="javascript:void(0)"></div>
-        <div class="point" id="a58" onclick="javascript:void(0)"></div>
+        <div class="point" id="a14" onclick="MainE(14)"></div> 
+        <div class="point" id="a15" onclick="MainE(15)"></div> 
+        <div class="point" id="a16" onclick="MainE(16)"></div> 
+        <div class="point" id="a17" onclick="MainE(17)"></div> 
+        <div class="point" id="a18" onclick="MainE(18)"></div> 
+        <div class="point" id="a19" onclick="MainE(19)"></div> 
+        <div class="point" id="a20" onclick="MainE(20)"></div> 
+        <div class="point" id="a21" onclick="MainE(21)"></div> 
+        <div class="point" id="a22" onclick="MainE(22)"></div> 
+        <div class="point" id="a23" onclick="MainE(23)"></div> 
+        <div class="point" id="a24" onclick="MainE(24)"></div> 
+        <div class="point" id="a25" onclick="MainE(25)"></div> 
+        <div class="point" id="a26" onclick="MainE(26)"></div> 
+        <div class="point" id="a27" onclick="MainE(27)"></div> 
+        <div class="point" id="a28" onclick="MainE(28)"></div> 
+        <div class="point" id="a29" onclick="MainE(29)"></div> 
+        <div class="point" id="a30" onclick="MainE(30)"></div> 
+        <div class="point" id="a32" onclick="MainE(32)"></div> 
+        <div class="point" id="a31" onclick="MainE(31)"></div> 
+        <div class="point" id="a33" onclick="MainE(33)"></div> 
+        <div class="point" id="a34" onclick="MainE(34)"></div> 
+        <div class="point" id="a35" onclick="MainE(35)"></div> 
+        <div class="point" id="a36" onclick="MainE(36)"></div> 
+        <div class="point" id="a37" onclick="MainE(37)"></div> 
+        <div class="point" id="a38" onclick="MainE(38)"></div> 
+        <div class="point" id="a39" onclick="MainE(39)"></div>
+        <div class="point" id="a40" onclick="MainE(40)"></div>
+        <div class="point" id="a41" onclick="MainE(41)"></div>
+        <div class="point" id="a42" onclick="MainE(42)"></div>
+        <div class="point" id="a43" onclick="MainE(43)"></div>
+        <div class="point" id="a44" onclick="MainE(44)"></div>
+        <div class="point" id="a45" onclick="MainE(45)"></div>
+        <div class="point" id="a46" onclick="MainE(46)"></div>
+        <div class="point" id="a47" onclick="MainE(47)"></div>
+        <div class="point" id="a48" onclick="MainE(48)"></div>
+        <div class="point" id="a49" onclick="MainE(49)"></div>
+        <div class="point" id="a50" onclick="MainE(50)"></div>
+        <div class="point" id="a51" onclick="MainE(51)"></div>
+        <div class="point" id="a52" onclick="MainE(52)"></div>
+        <div class="point" id="a53" onclick="MainE(53)"></div>
+        <div class="point" id="a54" onclick="MainE(54)"></div>
+        <div class="point" id="a55" onclick="MainE(55)"></div>
+        <div class="point" id="a56" onclick="MainE(56)"></div>
+        <div class="point" id="a57" onclick="MainE(57)"></div>
+        <div class="point" id="a58" onclick="MainE(58)"></div>
 
 
     </div>
 
-    <script src="map.js"></script>
+    <!--<script src="map.js"></script>-->
+    <script>
+        document.querySelectorAll(".point").forEach(image => {image.innerHTML = "X"})
+        document.getElementById("a58").innerHTML = "<h1><b>X</b></h1>"
+    </script>
 
 </body>
 </html>

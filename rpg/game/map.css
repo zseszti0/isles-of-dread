@@ -79,21 +79,34 @@ body {
 
 #skill1 {
     height: 7vh;
+    width: 7vh;
     position: absolute;
     left: 2vw;
     bottom: 30vh;
+    background: url("skill1false.png") no-repeat;
+    background-size: 7vh 7vh;
+    border: none;
 }
 #skill2 {
     height: 7vh;
+    width: 7vh;
     position: absolute;
     left: 8vw;
     bottom: 30vh;
+    background: url("skill2false.png") no-repeat;
+    background-size: 7vh 7vh;
+    border: none;
 }
+
 #skill3 {
     height: 11vh;
+    width: 11vh;
     position: absolute;
     left: 4vw;
     bottom: 17vh;
+    background: url("skill3false.png") no-repeat;
+    background-size: 11vh 11vh;
+    border: none;
 }
 #skill3CD {
     width: 11vh;
