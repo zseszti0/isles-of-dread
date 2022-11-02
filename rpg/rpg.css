@@ -1,5 +1,5 @@
 * {
-    font-family: 'Shalimar';
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
@@ -81,4 +81,8 @@ p {
     display:none;
     margin-left:30vw;;
     margin-right:30vw;
+}
+
+#accountsignup{
+    display:none;
 }
