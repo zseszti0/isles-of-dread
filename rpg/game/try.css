@@ -1,0 +1,32 @@
+#yes {
+    left: 80px;
+    width: 70px;
+    height: 30px;
+    top: 670px;
+    font-size: 20px;
+    transform: scale(1);
+}
+#yes:hover{
+    transform: scale(1.2);
+    content: "NO";
+}
+
+
+@keyframes blinking {
+    0% {
+        content: ">>YES<<";
+    }
+    50% {
+        content: ">YES<";
+    }
+    100% {
+        content: "YES";
+    }
+}
+
+.choice {
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.733);
+    border: 3px solid black;
+    font-family: 'Common Pixel', sans-serif; 
+}

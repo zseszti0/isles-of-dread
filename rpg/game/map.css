@@ -1,6 +1,7 @@
 body {
     cursor: default;
     background: url("texture.png");
+    background-size: 100%;
 }
 
 #bg {
@@ -11,11 +12,77 @@ body {
 }
 
 .MapSprite {
-    height: 50px;
+    height: 3vw;
+    bottom: 0.1vw;
     margin: 0px;
     padding: 0px;
     position: absolute;
-    bottom: 30px;
+}
+
+#splash {
+    position: absolute;
+    width: 188px;
+    height: 118px;
+    top: 62px;
+    left: 57px;
+}
+
+#tileText {
+    height: 1vw;
+    width: 20vw;
+    padding: 2px;
+    background-color: antiquewhite;
+    border: 3px solid black;
+    font-family: 'Common Pixel', sans-serif;
+    text-align: center;
+    position: absolute;
+}
+
+#dialougeBox2 {
+    left: 80px;
+    right: 5vw;
+    top: 600px;
+    height: 50px;
+    width: 600px;
+}
+
+#yes {
+    left: 80px;
+    width: 70px;
+    height: 30px;
+    top: 670px;
+}
+#yes:hover {
+    transform: scale(1.1);
+}
+
+@keyframes blinking {
+    0% {
+        content: '>>YES<<';
+    }
+    50% {
+        content: '>YES<';
+    }
+    100% {
+        content: 'YES';
+    }
+}
+#no {
+    left: 170px;
+    width: 70px;
+    height: 30px;
+    top: 670px; 
+}
+#no:hover {
+    transform: scale(1.1);
+}
+
+.choice {
+    position: absolute;
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.733);
+    border: 3px solid black;
+    font-family: 'Common Pixel', sans-serif; 
 }
 
 #protog {
@@ -27,6 +94,24 @@ body {
 #battlefield {
     position: relative;
     display: inline-block;
+    margin: auto;
+}
+
+@keyframes transB {
+    0% {
+        height: 600px;
+        filter: saturate(0);
+        filter:brightness(0%);
+        width: 0px;
+        opacity: 0;
+    }
+    100% {
+        height: 600px;
+        filter: saturate(1);
+        filter:brightness(100%);
+        opacity: 1;
+        width: 1000px;
+    }
 }
 
 #enemy {
@@ -41,11 +126,6 @@ body {
     top: 200px;
     left: 300px;
     width: 40vw;
-
-    animation: fightAnim 2s;
-    animation-fill-mode: forwards; 
-    animation-delay:block;
-    animation-timing-function: ease-in-out;
 }
 
 @keyframes fightAnim {
@@ -149,33 +229,43 @@ body {
     height: 7vh;
     width: 60vw;
     text-align: center;
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.733);
     border: 3px solid black;
     font-family: 'Common Pixel', sans-serif;
-
-    animation: dialBox 1s;
-    animation-fill-mode: forwards; 
-    animation-delay:1.5s;
 }
 
 @keyframes dialBox {
     0% {
         opacity: 1;
     }
-    79% {
+    69% {
         opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
     }
     80% {
-        opacity: 0;
-    }
-    90% {
         opacity: 1;
     }
-    100% {
+    90% {
         opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 @keyframes Run {
     0% {

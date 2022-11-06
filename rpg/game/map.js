@@ -2,6 +2,7 @@ let pos = 0
 let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
+let fightTriggerVar = false
 //base stats
 let Cname = "Barni a hős"
 let Atk = 130
@@ -76,23 +77,54 @@ const graph = [[1,3,4],
 [44,46,49,51]]
 
 //if id in graph[current pos]{id.style.DISPLAY = "block"} :heart_eyes:
+function FightTrigger(tf)
+{
+    document.getElementById("dialougeBox2").style.animation = "dialBox 2s forwards"
+    document.getElementById("dialougeBox2").style.display = "none"
+    if(tf){
+        LoadSceneE(pos)}
+    else{
+        document.getElementById("yes").style.display = "none"
+        document.getElementById("no").style.display = "none"
+    }
+    
+}
+
 function MainE (holVagyok)
 {
-    LoadSceneE(holVagyok)
-    document.getElementById("dialougeBox").style.display = "block"
-    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!"
+    document.getElementById("dialougeBox2").style.display = "block"
+    document.getElementById("story2").innerHTML = "Go into the Magic Forest?"
 
-    setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
+    document.getElementById("yes").style.display = "block"
+    document.getElementById("no").style.display = "block"
+    document.getElementById("yes").style.opacity = "0"
+    document.getElementById("no").style.opacity = "0"
+
+
+    //document.querySelectorAll(".choice").forEach(div => {div.style.animation = "dialBox 2s reverse forwards"})
+    document.getElementById("dialougeBox2").style.animation = "dialBox 2s reverse forwards"
+    document.getElementById("yes").style.animation = "dialBox 1s 1.5s reverse forwards"
+    document.getElementById("no").style.animation = "dialBox 1s 2.5s reverse forwards"
+
+    
+    pos = holVagyok
+    
 }
 
 function LoadSceneE(holVagyok)
 {
+    
+    document.getElementById("dialougeBox").style.display = "block"
+    //document.getElementById("dialogueBox").style.animation = "dialBox 1s forwards"
+    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!"
+
+    setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
     pos = holVagyok
     document.getElementById("container").style.display = "none"
-    //map bejon enemyvel
-    document.getElementById("bg").style.display = "block"
-    document.getElementById("enemy").style.display = "block"
-    document.getElementById("protog").style.display = "block"
+    //map bejon 
+    document.getElementById("battlefield").style.display = "block"
+    document.getElementById("fight").style.display = "none"
+    document.getElementById("battlefield").style.animation= "transB 2s forwards;"
     document.getElementById("protog").style.animation= "Run 2s forwards"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
@@ -103,7 +135,7 @@ function BattleStart()
 {
     document.getElementById("fightButton").style.display = "none"
     document.getElementById("fight").style.display = "block"
-    setTimeout(() => {document.getElementById("fight").style.display = "none"}, 3000)
+    document.getElementById("fight").style.animation= "fightAnim 2s forwards"
     //document.getElementById("fight").style.display = "none"
 
     document.getElementById("dialougeBox").style.display = "none"
@@ -242,12 +274,12 @@ function ShowMap(){
     document.getElementById("skill3").style.display = "none"
     document.getElementById("skill3CD").style.display = "none"
 
-    document.getElementById("bg").style.display = "none"
-    document.getElementById("protog").style.display = "none"
-    document.getElementById("enemy").style.display = "none"
-    document.getElementById("dialougeBox").style.display = "none"
-    document.getElementById("fight").style.display = "none"
-    document.getElementById("fightButton").style.display = "none"
+    document.getElementById("battlefield").style.display = "none"
+
+    document.getElementById("dialougeBox2").style.display = "none"
+    document.getElementById("yes").style.display = "none"
+    document.getElementById("no").style.display = "none"
+
     elerheto()
 }
 
@@ -263,6 +295,8 @@ function elerheto() {
     document.getElementById("a"+pos).style.cursor="default"
     document.getElementById("a"+pos).style.display="block"
     document.getElementById("a"+pos).innerHTML="<img class=MapSprite src=knight/Knight_1/Normal.png>"
+
+    document.getElementById("tileText").style.display = "none"
 }
 
 function skill3()
@@ -272,4 +306,26 @@ function skill3()
     enemyTurn()
 }
 
+function tileText(holVagyok){
+    document.getElementById("splash").src = ("backgrounds/" + holVagyok + ".png")
+    document.getElementById("tileText").style.display = "block"
+    mousePos()
+
+    document.getElementById("tileText").style.animation= "fadeIn 1s forwards"
+}
+function NotileText(){document.getElementById("tileText").style.display = "none"}
+
+function mousePos()
+{
+    var e = window.event;
+
+    var posX = e.clientX;
+    var posY = e.clientY;
+
+    console.log(posX,posY)
+    document.getElementById("tileText").style.left = (posX - (window.innerWidth - 1000)/2 + "px")
+    console.log(posX - (window.innerWidth - 1000)/2 + "px")
+    document.getElementById("tileText").style.top = (posY + "px")
+
+}
 ShowMap()

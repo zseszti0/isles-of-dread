@@ -29,78 +29,79 @@
         <div id="dialougeBox"><h2 id="story"></h2></div>
         <img id="fight" src="fight.png">
     </div>
+
+    
     
     <div id="container" style="width: 1000px;">
+        <div class="choice" id="dialougeBox2"><h2 id="story2"></h2></div>
+        <div id="tileText"> Magic Forest by the mountain</div>
+        <img id="splash" src="backgrounds/1.png">
+        <div class="choice" id="yes" onclick="FightTrigger(true)">>>YES<<</div>
+        <div class="choice" id="no" onclick="FightTrigger(false)">>>NO<<</div>
         <img id="map" src="map.png" width="1000px">
         
-        <div class="point" id="a0" onclick="MainE(0)"></div>
-        <div class="point" id="a1" onclick="MainE(1)"></div>
-        <div class="point" id="a2" onclick="MainE(2)"></div>
-        <div class="point" id="a3" onclick="MainE(3)"></div>
-        <div class="point" id="a4" onclick="MainE(4)"></div>
-        <div class="point" id="a5" onclick="MainE(5)"></div> 
-        <div class="point" id="a6" onclick="MainE(6)"></div> 
-        <div class="point" id="a7" onclick="MainE(7)"></div> 
-        <div class="point" id="a8" onclick="MainE(8)"></div> 
-        <div class="point" id="a9" onclick="MainE(9)"></div> 
-        <div class="point" id="a10" onclick="MainE(10)"></div> 
-        <div class="point" id="a11" onclick="MainE(11)"></div> 
-        <div class="point" id="a12" onclick="MainE(12)"></div> 
-        <div class="point" id="a13" onclick="MainE(13)"></div> 
-        <div class="point" id="a14" onclick="MainE(14)"></div> 
-        <div class="point" id="a15" onclick="MainE(15)"></div> 
-        <div class="point" id="a16" onclick="MainE(16)"></div> 
-        <div class="point" id="a17" onclick="MainE(17)"></div> 
-        <div class="point" id="a18" onclick="MainE(18)"></div> 
-        <div class="point" id="a19" onclick="MainE(19)"></div> 
-        <div class="point" id="a20" onclick="MainE(20)"></div> 
-        <div class="point" id="a21" onclick="MainE(21)"></div> 
-        <div class="point" id="a22" onclick="MainE(22)"></div> 
-        <div class="point" id="a23" onclick="MainE(23)"></div> 
-        <div class="point" id="a24" onclick="MainE(24)"></div> 
-        <div class="point" id="a25" onclick="MainE(25)"></div> 
-        <div class="point" id="a26" onclick="MainE(26)"></div> 
-        <div class="point" id="a27" onclick="MainE(27)"></div> 
-        <div class="point" id="a28" onclick="MainE(28)"></div> 
-        <div class="point" id="a29" onclick="MainE(29)"></div> 
-        <div class="point" id="a30" onclick="MainE(30)"></div> 
-        <div class="point" id="a32" onclick="MainE(32)"></div> 
-        <div class="point" id="a31" onclick="MainE(31)"></div> 
-        <div class="point" id="a33" onclick="MainE(33)"></div> 
-        <div class="point" id="a34" onclick="MainE(34)"></div> 
-        <div class="point" id="a35" onclick="MainE(35)"></div> 
-        <div class="point" id="a36" onclick="MainE(36)"></div> 
-        <div class="point" id="a37" onclick="MainE(37)"></div> 
-        <div class="point" id="a38" onclick="MainE(38)"></div> 
-        <div class="point" id="a39" onclick="MainE(39)"></div>
-        <div class="point" id="a40" onclick="MainE(40)"></div>
-        <div class="point" id="a41" onclick="MainE(41)"></div>
-        <div class="point" id="a42" onclick="MainE(42)"></div>
-        <div class="point" id="a43" onclick="MainE(43)"></div>
-        <div class="point" id="a44" onclick="MainE(44)"></div>
-        <div class="point" id="a45" onclick="MainE(45)"></div>
-        <div class="point" id="a46" onclick="MainE(46)"></div>
-        <div class="point" id="a47" onclick="MainE(47)"></div>
-        <div class="point" id="a48" onclick="MainE(48)"></div>
-        <div class="point" id="a49" onclick="MainE(49)"></div>
-        <div class="point" id="a50" onclick="MainE(50)"></div>
-        <div class="point" id="a51" onclick="MainE(51)"></div>
-        <div class="point" id="a52" onclick="MainE(52)"></div>
-        <div class="point" id="a53" onclick="MainE(53)"></div>
-        <div class="point" id="a54" onclick="MainE(54)"></div>
-        <div class="point" id="a55" onclick="MainE(55)"></div>
-        <div class="point" id="a56" onclick="MainE(56)"></div>
-        <div class="point" id="a57" onclick="MainE(57)"></div>
-        <div class="point" id="a58" onclick="MainE(58)"></div>
-
-
+        <div class="point" id="a0" onclick="MainE(0)" onmouseover="tileText(0)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a1" onclick="MainE(1)" onmouseover="tileText(1)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a2" onclick="MainE(2)" onmouseover="tileText(2)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a3" onclick="MainE(3)" onmouseover="tileText(3)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a4" onclick="MainE(4)" onmouseover="tileText(4)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a5" onclick="MainE(5)" onmouseover="tileText(5)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a6" onclick="MainE(6)" onmouseover="tileText(6)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a7" onclick="MainE(7)" onmouseover="tileText(7)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a8" onclick="MainE(8)" onmouseover="tileText(8)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a9" onclick="MainE(9)" onmouseover="tileText(9)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a10" onclick="MainE(10)" onmouseover="tileText(10)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a11" onclick="MainE(11)" onmouseover="tileText(11)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a12" onclick="MainE(12)" onmouseover="tileText(12)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a13" onclick="MainE(13)" onmouseover="tileText(13)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a14" onclick="MainE(14)" onmouseover="tileText(14)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a15" onclick="MainE(15)" onmouseover="tileText(15)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a16" onclick="MainE(16)" onmouseover="tileText(16)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a17" onclick="MainE(17)" onmouseover="tileText(17)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a18" onclick="MainE(18)" onmouseover="tileText(18)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a19" onclick="MainE(19)" onmouseover="tileText(19)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a20" onclick="MainE(20)" onmouseover="tileText(20)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a21" onclick="MainE(21)" onmouseover="tileText(21)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a22" onclick="MainE(22)" onmouseover="tileText(22)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a23" onclick="MainE(23)" onmouseover="tileText(23)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a24" onclick="MainE(24)" onmouseover="tileText(24)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a25" onclick="MainE(25)" onmouseover="tileText(25)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a26" onclick="MainE(26)" onmouseover="tileText(26)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a27" onclick="MainE(27)" onmouseover="tileText(27)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a28" onclick="MainE(28)" onmouseover="tileText(28)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a29" onclick="MainE(29)" onmouseover="tileText(29)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a30" onclick="MainE(30)" onmouseover="tileText(30)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a32" onclick="MainE(32)" onmouseover="tileText(31)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a31" onclick="MainE(31)" onmouseover="tileText(32)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a33" onclick="MainE(33)" onmouseover="tileText(33)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a34" onclick="MainE(34)" onmouseover="tileText(34)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a35" onclick="MainE(35)" onmouseover="tileText(35)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a36" onclick="MainE(36)" onmouseover="tileText(36)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a37" onclick="MainE(37)" onmouseover="tileText(37)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a38" onclick="MainE(38)" onmouseover="tileText(38)" onmouseleave="NotileText()"div> 
+        <div class="point" id="a39" onclick="MainE(39)" onmouseover="tileText(39)" onmouseleave="NotileText()"div>
+        <div class="point" id="a40" onclick="MainE(40)" onmouseover="tileText(40)" onmouseleave="NotileText()"div>
+        <div class="point" id="a41" onclick="MainE(41)" onmouseover="tileText(41)" onmouseleave="NotileText()"div>
+        <div class="point" id="a42" onclick="MainE(42)" onmouseover="tileText(42)" onmouseleave="NotileText()"div>
+        <div class="point" id="a43" onclick="MainE(43)" onmouseover="tileText(43)" onmouseleave="NotileText()"div>
+        <div class="point" id="a44" onclick="MainE(44)" onmouseover="tileText(44)" onmouseleave="NotileText()"div>
+        <div class="point" id="a45" onclick="MainE(45)" onmouseover="tileText(45)" onmouseleave="NotileText()"div>
+        <div class="point" id="a46" onclick="MainE(46)" onmouseover="tileText(46)" onmouseleave="NotileText()"div>
+        <div class="point" id="a47" onclick="MainE(47)" onmouseover="tileText(47)" onmouseleave="NotileText()"div>
+        <div class="point" id="a48" onclick="MainE(48)" onmouseover="tileText(48)" onmouseleave="NotileText()"div>
+        <div class="point" id="a49" onclick="MainE(49)" onmouseover="tileText(49)" onmouseleave="NotileText()"div>
+        <div class="point" id="a50" onclick="MainE(50)" onmouseover="tileText(50)" onmouseleave="NotileText()"div>
+        <div class="point" id="a51" onclick="MainE(51)" onmouseover="tileText(51)" onmouseleave="NotileText()"div>
+        <div class="point" id="a52" onclick="MainE(52)" onmouseover="tileText(52)" onmouseleave="NotileText()"div>
+        <div class="point" id="a53" onclick="MainE(53)" onmouseover="tileText(53)" onmouseleave="NotileText()"div>
+        <div class="point" id="a54" onclick="MainE(54)" onmouseover="tileText(54)" onmouseleave="NotileText()"div>
+        <div class="point" id="a55" onclick="MainE(55)" onmouseover="tileText(55)" onmouseleave="NotileText()"div>
+        <div class="point" id="a56" onclick="MainE(56)" onmouseover="tileText(56)" onmouseleave="NotileText()"div>
+        <div class="point" id="a57" onclick="MainE(57)" onmouseover="tileText(57)" onmouseleave="NotileText()"div>
+        <div class="point" id="a58" onclick="MainE(58)" onmouseover="tileText(58)" onmouseleave="NotileText()"div>
     </div>
 
-    <!--<script src="map.js"></script>-->
-    <script>
-        document.querySelectorAll(".point").forEach(image => {image.innerHTML = "X"})
-        document.getElementById("a58").innerHTML = "<h1><b>X</b></h1>"
-    </script>
+    <script src="map.js"></script>
 
 </body>
 </html>

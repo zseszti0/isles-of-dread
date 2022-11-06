@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0" />
+    <title>Text Animation</title>
+      
+    <style>
+        .choice {
+            text-align: center;
+            background-color: rgba(238, 243, 247, 0.733);
+            border: 3px solid black;
+            font-family: 'Common Pixel', sans-serif; 
+        }
+        #yes {
+            width: 70px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+        }
+        span::before {
+            content: ">>YES<<";
+            animation: animate infinite 2s;
+            padding-left: 10px;
+        }
+  
+        @keyframes animate {
+  
+            0% {
+                content: "YES";
+            }
+            50% {
+                content: ">YES<";
+            }
+            75% {
+                content: ">>YES<<";
+            }
+            100% {
+                content: "YES";
+            }
+        }
+    </style>
+</head>
+  
+<body>
+    <div class="choice" id="yes"><span> </span></div>
+</body>
+  
+</html>
