@@ -1,0 +1,2 @@
+    let accountpassword = <?php session_start(); $_SESSION['accountpassword']; ?>
+    && accountpassword != ""
