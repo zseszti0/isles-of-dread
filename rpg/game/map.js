@@ -3,6 +3,7 @@ let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
 let fightTriggerVar = false
+
 //base stats
 let Cname = "Barni a hős"
 let Atk = 130
@@ -93,7 +94,7 @@ function FightTrigger(tf)
 function MainE (holVagyok)
 {
     document.getElementById("dialougeBox2").style.display = "block"
-    document.getElementById("story2").innerHTML = "Go into the Magic Forest?"
+    //document.getElementById("story2").innerHTML = "Go into the Magic Forest?"
 
     document.getElementById("yes").style.display = "block"
     document.getElementById("no").style.display = "block"
@@ -103,8 +104,11 @@ function MainE (holVagyok)
 
     //document.querySelectorAll(".choice").forEach(div => {div.style.animation = "dialBox 2s reverse forwards"})
     document.getElementById("dialougeBox2").style.animation = "dialBox 2s reverse forwards"
-    document.getElementById("yes").style.animation = "dialBox 1s 1.5s reverse forwards"
-    document.getElementById("no").style.animation = "dialBox 1s 2.5s reverse forwards"
+    //letterByLetter("#story2", "Go into the Magic Forest?", 0, 20);
+    setTimeout(() => {letterByLetter("#story2", "Go into the Magic Forest?", 0, 20);}, 1000)
+
+    document.getElementById("yes").style.animation = "dialBox 1s 2s reverse forwards"
+    document.getElementById("no").style.animation = "dialBox 1s 3s reverse forwards"
 
     
     pos = holVagyok
@@ -128,7 +132,10 @@ function LoadSceneE(holVagyok)
     document.getElementById("protog").style.animation= "Run 2s forwards"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
-    document.getElementById("enemy").src = "enemy/crab.png"
+
+    //random enemy
+    var randomEnemy =  Math.floor(Math.random() * 10) + 1;
+    document.getElementById("enemy").src = ("enemy/enemy"+randomEnemy+".png")
 
 }
 function BattleStart()
@@ -315,6 +322,9 @@ function tileText(holVagyok){
 }
 function NotileText(){document.getElementById("tileText").style.display = "none"}
 
+
+//SEGÉD FUNCTIONS
+//!!
 function mousePos()
 {
     var e = window.event;
@@ -326,6 +336,16 @@ function mousePos()
     document.getElementById("tileText").style.left = (posX - (window.innerWidth - 1000)/2 + "px")
     console.log(posX - (window.innerWidth - 1000)/2 + "px")
     document.getElementById("tileText").style.top = (posY + "px")
-
 }
+let letterByLetter = function(target, message, index, interval) {
+    if (index < message.length) {
+      document.querySelector(target).textContent = message.slice(0, index);
+  
+      setTimeout(function() {
+        letterByLetter(target, message, index + 1, interval);
+      }, interval);
+    }
+  }
+
+//MAIN
 ShowMap()

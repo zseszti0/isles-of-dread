@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "pixelfont";
+    src: url("webfontkit-20221109-043219/vt323-regular-webfont.woff2");
+  }
+
 body {
+    font-size: larger;
     cursor: default;
     background: url("texture.png");
     background-size: 100%;
@@ -33,7 +39,7 @@ body {
     padding: 2px;
     background-color: antiquewhite;
     border: 3px solid black;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
     text-align: center;
     position: absolute;
 }
@@ -44,6 +50,15 @@ body {
     top: 600px;
     height: 50px;
     width: 600px;
+}
+#story2 {
+    font-family: 'pixelfont'; 
+    position: absolute;
+    white-space: pre-wrap;
+    text-align: left;
+
+    top: 590px;
+    left: 100px;
 }
 
 #yes {
@@ -82,7 +97,7 @@ body {
     text-align: center;
     background-color: rgba(240, 248, 255, 0.733);
     border: 3px solid black;
-    font-family: 'Common Pixel', sans-serif; 
+    font-family: 'pixelfont'; 
 }
 
 #protog {
@@ -154,7 +169,7 @@ body {
     position: absolute;
     top: 200px;
     left: 600px;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
 }
 
 #skill1 {
@@ -199,20 +214,20 @@ body {
     top: 250px;
     left: 100px;
     position: absolute;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
 }
 
 #Cname {
     top: 200px;
     left: 100px;
     position: absolute;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
 }
 #CHP {
     top: 250px;
     left: 100px;
     position: absolute;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
 }
 
 #fightButton {
@@ -231,7 +246,11 @@ body {
     text-align: center;
     background-color: rgba(240, 248, 255, 0.733);
     border: 3px solid black;
-    font-family: 'Common Pixel', sans-serif;
+    font-family: 'pixelfont';
+}
+#story {
+    text-align: left;
+    white-space: pre-wrap;
 }
 
 @keyframes dialBox {

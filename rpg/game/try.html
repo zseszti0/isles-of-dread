@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content=
-        "width=device-width, initial-scale=1.0" />
-    <title>Text Animation</title>
-      
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
     <style>
-        .choice {
-            text-align: center;
-            background-color: rgba(238, 243, 247, 0.733);
-            border: 3px solid black;
-            font-family: 'Common Pixel', sans-serif; 
-        }
-        #yes {
-            width: 70px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            color: rgb(0, 0, 0);
-        }
-        span::before {
-            content: ">>YES<<";
-            animation: animate infinite 2s;
-            padding-left: 10px;
-        }
-  
-        @keyframes animate {
-  
-            0% {
-                content: "YES";
-            }
-            50% {
-                content: ">YES<";
-            }
-            75% {
-                content: ">>YES<<";
-            }
-            100% {
-                content: "YES";
-            }
-        }
+
     </style>
 </head>
-  
 <body>
-    <div class="choice" id="yes"><span> </span></div>
+    <h1 id="story"></h1>
+
+    <script>
+        const enemy1 = {
+            name: "Goblin",
+            Hp: 1700,
+            Atk: 100,
+            Cr: 1,
+            Speed: 0,
+            Dodge: 3,
+            Story: "cheeky goblin.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+        };
+        const enemy2 = {
+            name: "Snek",
+            Hp: 1500,
+            Atk: 170,
+            Cr: 3,
+            Speed: 1,
+            Dodge: 1,
+            Story: "poisönösz snake.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+        };
+        const enemy3 = {
+            name: "Mermaid",
+            Hp: 2100,
+            Atk: 60,
+            Cr: 2,
+            Speed: 1,
+            Dodge: 7,
+            Story: "hot :hotface_emoji:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+        };
+        const enemy4 = {
+            name: "Mermaid",
+            Hp: 2100,
+            Atk: 60,
+            Cr: 2,
+            Speed: 1,
+            Dodge: 7,
+            Story: "hot :hotface_emoji:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+        };
+        const enemy9 = {
+            name: "Crab",
+            Hp: 4000,
+            Atk: 100,
+            Cr: 5,
+            Speed: 0,
+            Dodge: 1,
+            Story: "a strong crab.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+        };
+        console.log(enemy1.name)
+    </script>
 </body>
-  
 </html>
