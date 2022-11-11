@@ -18,6 +18,99 @@ let UltCost = 100 //max cost
 let Energy = 0
 
 
+//ENEMIES TEMPLATE
+const enemy1 = {
+    name: "Goblin",
+    Hp: 1700,
+    Atk: 100,
+    Cr: 1,
+    Speed: 0,
+    Dodge: 3,
+    Story: "cheeky goblin.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy2 = {
+    name: "Snek",
+    Hp: 1500,
+    Atk: 170,
+    Cr: 3,
+    Speed: 1,
+    Dodge: 1,
+    Story: "poisönösz snake.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy3 = {
+    name: "Mermaid",
+    Hp: 2100,
+    Atk: 60,
+    Cr: 2,
+    Speed: 1,
+    Dodge: 7,
+    Story: "hot :hotface_emoji:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy4 = {
+    name: "Crab",
+    Hp: 2000,
+    Atk: 100,
+    Cr: 6,
+    Speed: 2,
+    Dodge: 1,
+    Story: "a strong crab.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy5 = {
+    name: "Ningyo",
+    Hp: 2300,
+    Atk: 200,
+    Cr: 2,
+    Speed: 1,
+    Dodge: 2,
+    Story: "hot legs :eyes:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy6 = {
+    name: "Kentaur",
+    Hp: 3000,
+    Atk: 170,
+    Cr: 4,
+    Speed: 1,
+    Dodge: 2,
+    Story: "verz tanky sheesh.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy7 = {
+    name: "Birb.",
+    Hp: 2000,
+    Atk: 300,
+    Cr: 7,
+    Speed: 4,
+    Dodge: 5,
+    Story: "Birb. Chirp.strong but fragileLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy8 = {
+    name: "minatarusz (idk dyslekszia)",
+    Hp: 2700,
+    Atk: 250,
+    Cr: 4,
+    Speed: 1,
+    Dodge: 1,
+    Story: "tank strong thats it. slow tho and bigLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy9 = {
+    name: "ork",
+    Hp: 4000,
+    Atk: 250,
+    Cr: 3,
+    Speed: 1,
+    Dodge: 3,
+    Story: "org."
+};
+const enemy10 = {
+    name: "stone golem",
+    Hp: 5000,
+    Atk: 300,
+    Cr: 7,
+    Speed: 1,
+    Dodge: 1,
+    Story: "kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő."
+};
+
+//pos
 const graph = [[1,3,4],
 [0,4,5,6,2],
 [1,4,5,6],
