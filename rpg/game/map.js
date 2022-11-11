@@ -19,10 +19,13 @@ let Energy = 0
 
 
 //ENEMIES TEMPLATE
+let curEnemy = ""
+
 const enemy1 = {
     name: "Goblin",
     Hp: 1700,
     Atk: 100,
+    diff: 1,
     Cr: 1,
     Speed: 0,
     Dodge: 3,
@@ -32,6 +35,7 @@ const enemy2 = {
     name: "Snek",
     Hp: 1500,
     Atk: 170,
+    diff: 1,
     Cr: 3,
     Speed: 1,
     Dodge: 1,
@@ -41,6 +45,7 @@ const enemy3 = {
     name: "Mermaid",
     Hp: 2100,
     Atk: 60,
+    diff: 1,
     Cr: 2,
     Speed: 1,
     Dodge: 7,
@@ -50,6 +55,7 @@ const enemy4 = {
     name: "Crab",
     Hp: 2000,
     Atk: 100,
+    diff: 1,
     Cr: 6,
     Speed: 2,
     Dodge: 1,
@@ -59,6 +65,7 @@ const enemy5 = {
     name: "Ningyo",
     Hp: 2300,
     Atk: 200,
+    diff: 1,
     Cr: 2,
     Speed: 1,
     Dodge: 2,
@@ -68,6 +75,7 @@ const enemy6 = {
     name: "Kentaur",
     Hp: 3000,
     Atk: 170,
+    diff: 1,
     Cr: 4,
     Speed: 1,
     Dodge: 2,
@@ -77,6 +85,7 @@ const enemy7 = {
     name: "Birb.",
     Hp: 2000,
     Atk: 300,
+    diff: 1,
     Cr: 7,
     Speed: 4,
     Dodge: 5,
@@ -86,6 +95,7 @@ const enemy8 = {
     name: "minatarusz (idk dyslekszia)",
     Hp: 2700,
     Atk: 250,
+    diff: 1,
     Cr: 4,
     Speed: 1,
     Dodge: 1,
@@ -95,6 +105,7 @@ const enemy9 = {
     name: "ork",
     Hp: 4000,
     Atk: 250,
+    diff: 1,
     Cr: 3,
     Speed: 1,
     Dodge: 3,
@@ -104,6 +115,7 @@ const enemy10 = {
     name: "stone golem",
     Hp: 5000,
     Atk: 300,
+    diff: 1,
     Cr: 7,
     Speed: 1,
     Dodge: 1,
@@ -229,6 +241,7 @@ function LoadSceneE(holVagyok)
     //random enemy
     var randomEnemy =  Math.floor(Math.random() * 10) + 1;
     document.getElementById("enemy").src = ("enemy/enemy"+randomEnemy+".png")
+    curEnemy = "enemy" + randomEnemy
 
 }
 function BattleStart()
@@ -254,6 +267,35 @@ function BattleStart()
     turn()
 
 }
+
+function enemyInfo() {
+    document.getElementById("infoText").style.animation= "fadeIn 1.5s 0.7s forwards"
+
+    document.getElementById("infoText").innerHTML = 
+    "Name: "+this.name +"<br>"+"HP: "+this.Hp +"    "+"Difficulty"+this.diff+"<br><br>"+"Describtion: "+this.Story
+}
+  
+enemy1.enemyInfo = enemyInfo;
+enemy2.enemyInfo = enemyInfo;
+enemy3.enemyInfo = enemyInfo;
+enemy4.enemyInfo = enemyInfo;
+enemy5.enemyInfo = enemyInfo;
+enemy6.enemyInfo = enemyInfo;
+enemy7.enemyInfo = enemyInfo;
+enemy8.enemyInfo = enemyInfo;
+enemy9.enemyInfo = enemyInfo;
+enemy10.enemyInfo = enemyInfo;
+  
+
+function information()
+{
+    document.getElementById("infoTab").style.display = "block"
+    document.getElementById("infoText").style.opacity = "0"
+
+    document.getElementById("infoTab").style.animation= "infoFadeIn 0.7s forwards"
+    this.enemyInfo();
+}
+
 
 function turn()
 {
