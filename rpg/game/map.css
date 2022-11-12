@@ -16,10 +16,20 @@ body {
 }
 
 #bg {
+    bottom: 0;
+    left: 0;
     margin-top: 10vh;
     width: 70vw;
     height: 70vh;
     border: 3px solid black;
+}
+
+#cinematic {
+    position: absolute;
+    bottom: 0.6vw;
+    left: 0.2vw;
+    width: 70vw;
+    height: 70vh;
 }
 
 .MapSprite {
@@ -42,7 +52,7 @@ body {
     height: 1vw;
     width: 20vw;
     padding: 2px;
-    background-color: antiquewhite;
+    background-color: rgba(250, 235, 215, 0.836);
     border: 3px solid black;
     font-family: 'pixelfont';
     text-align: center;
@@ -100,7 +110,7 @@ body {
 .choice {
     position: absolute;
     text-align: center;
-    background-color: rgba(240, 248, 255, 0.733);
+    background-color: rgba(250, 235, 215, 0.836);
     border: 3px solid black;
     font-family: 'pixelfont'; 
 }

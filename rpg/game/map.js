@@ -182,11 +182,32 @@ const graph = [[1,3,4],
 [51,52,55],
 [44,46,49,51]]
 
+//TILE TEXT
+
+const tileTexts = {
+    
+    tile0: "Beach of the [Unknow Ocean]",
+    tile1: "Beach of the [Unknow Ocean]",
+    tile2: "Beach of the [Unknow Ocean]",
+    tile3: "Forest by the [Unknow Ocean]",
+    tile4: "Bottom of [Korkeat Mountains]",
+    tile5: "Forest bye [Lake Iso]",
+    tile6: "[Lake Iso]",
+    tile7: "Beach of the [Unknow Ocean]"
+};
+
+
+
+//GAME ----------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------
+
 //if id in graph[current pos]{id.style.DISPLAY = "block"} :heart_eyes:
 function FightTrigger(tf)
 {
     document.getElementById("dialougeBox2").style.animation = "dialBox 2s forwards"
     document.getElementById("dialougeBox2").style.display = "none"
+    document.getElementById("story2").style.display = "none"
+
     if(tf){
         LoadSceneE(pos)}
     else{
@@ -199,6 +220,7 @@ function FightTrigger(tf)
 function MainE (holVagyok)
 {
     document.getElementById("dialougeBox2").style.display = "block"
+    document.getElementById("story2").style.display = "block"
     //document.getElementById("story2").innerHTML = "Go into the Magic Forest?"
 
     document.getElementById("yes").style.display = "block"
@@ -232,7 +254,14 @@ function LoadSceneE(holVagyok)
     document.getElementById("container").style.display = "none"
     //map bejon 
     document.getElementById("battlefield").style.display = "block"
+
+    //fighr scene clickables
+    //!!
     document.getElementById("fight").style.display = "none"
+    document.getElementById("infoTab").style.display = "none"
+    document.getElementById("cinematic").style.display = "none"
+
+
     document.getElementById("battlefield").style.animation= "transB 2s forwards;"
     document.getElementById("protog").style.animation= "Run 2s forwards"
 
@@ -267,24 +296,76 @@ function BattleStart()
     turn()
 
 }
-
+// :) temporary i cant do better
 function enemyInfo() {
+
+    document.getElementById("cinematic").style.display = "block"
+    //document.getElementById("cinematic").style.animation = "fadeIn 1.5s 0.7s forwards"
+    document.getElementById("cinematic").src = "backgrounds/infoOveray.png"
+
     document.getElementById("infoText").style.animation= "fadeIn 1.5s 0.7s forwards"
 
-    document.getElementById("infoText").innerHTML = 
-    "Name: "+this.name +"<br>"+"HP: "+this.Hp +"    "+"Difficulty"+this.diff+"<br><br>"+"Describtion: "+this.Story
+    console.log(curEnemy)
+
+    // sheesh :gtrimace:
+    if(curEnemy == "enemy1")
+    {
+        console.log("enemy 1")
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy1.name +"<br>"+"HP: "+enemy1.Hp +"    "+"Difficulty"+enemy1.diff+"<br><br>"+"Describtion: "+enemy1.Story
+    }
+    else if(curEnemy == "enemy2")
+    {
+        console.log("enemy 2")
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy2.name +"<br>"+"HP: "+enemy2.Hp +"    "+"Difficulty"+enemy2.diff+"<br><br>"+"Describtion: "+enemy2.Story
+    }
+    else if(curEnemy == "enemy3")
+    {
+        console.log("enemy 3")
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy3.name +"<br>"+"HP: "+enemy3.Hp +"    "+"Difficulty"+enemy3.diff+"<br><br>"+"Describtion: "+enemy3.Story
+    }
+    else if(curEnemy == "enemy4")
+    {
+        console.log("enemy 4")
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy4.name +"<br>"+"HP: "+enemy4.Hp +"    "+"Difficulty"+enemy4.diff+"<br><br>"+"Describtion: "+enemy4.Story
+    }
+    else if(curEnemy == "enemy5")
+    {
+        console.log("enemy 5")
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy5.name +"<br>"+"HP: "+enemy5.Hp +"    "+"Difficulty"+enemy5.diff+"<br><br>"+"Describtion: "+enemy5.Story
+    }
+    else if(curEnemy == "enemy6")
+    {
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy6.name +"<br>"+"HP: "+enemy6.Hp +"    "+"Difficulty"+enemy6.diff+"<br><br>"+"Describtion: "+enemy6.Story
+    }
+    else if(curEnemy == "enemy7")
+    {
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy7.name +"<br>"+"HP: "+enemy7.Hp +"    "+"Difficulty"+enemy7.diff+"<br><br>"+"Describtion: "+enemy7.Story
+    }
+    else if(curEnemy == "enemy8")
+    {
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy8.name +"<br>"+"HP: "+enemy8.Hp +"    "+"Difficulty"+enemy8.diff+"<br><br>"+"Describtion: "+enemy8.Story
+    }
+    else if(curEnemy == "enemy9")
+    {
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy9.name +"<br>"+"HP: "+enemy9.Hp +"    "+"Difficulty"+enemy9.diff+"<br><br>"+"Describtion: "+enemy9.Story
+    }
+    else if(curEnemy == "enemy10")
+    {
+        document.getElementById("infoText").innerHTML = 
+        "Name: "+enemy10.name +"<br>"+"HP: "+enemy10.Hp +"    "+"Difficulty"+enemy10.diff+"<br><br>"+"Describtion: "+enemy10.Story
+    }
+    
+    
 }
-  
-enemy1.enemyInfo = enemyInfo;
-enemy2.enemyInfo = enemyInfo;
-enemy3.enemyInfo = enemyInfo;
-enemy4.enemyInfo = enemyInfo;
-enemy5.enemyInfo = enemyInfo;
-enemy6.enemyInfo = enemyInfo;
-enemy7.enemyInfo = enemyInfo;
-enemy8.enemyInfo = enemyInfo;
-enemy9.enemyInfo = enemyInfo;
-enemy10.enemyInfo = enemyInfo;
   
 
 function information()
@@ -293,7 +374,7 @@ function information()
     document.getElementById("infoText").style.opacity = "0"
 
     document.getElementById("infoTab").style.animation= "infoFadeIn 0.7s forwards"
-    this.enemyInfo();
+    enemyInfo()
 }
 
 
@@ -454,6 +535,7 @@ function tileText(holVagyok){
     mousePos()
 
     document.getElementById("tileText").style.animation= "fadeIn 1s forwards"
+    document.getElementById("tileText").innerHTML = tileTexts["tile"+holVagyok]
 }
 function NotileText(){document.getElementById("tileText").style.display = "none"}
 

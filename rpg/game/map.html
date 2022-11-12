@@ -20,7 +20,7 @@
         <h2 id="CHP"></h2>
         <img id="protog" src="knight/Knight_1/Protect.png">
         <img id="enemy" src="">
-        <button onclick="information()" id="infoButton"></button>
+        <button onclick="information()" id="infoButton" ></button>
         <h2 id="enemyHP"></h2>
 
         <button id="skill1" onclick="skill1()" ></button>
@@ -31,7 +31,8 @@
         <h2 id="energy"></h2>
         <div id="dialougeBox"><h2 id="story"></h2></div>
         <img id="fight" src="fight.png">
-        <div id="infoTab" onclick="document.getElementById('infoTab').style.display = 'none'"><p id="infoText"></p></div>
+        <img id="cinematic" src="">
+        <div id="infoTab" onclick="document.getElementById('infoTab').style.display = 'none'; document.getElementById('cinematic').style.display = 'none' "><p id="infoText"></p></div>
     </div>
 
     
@@ -39,7 +40,7 @@
     <div id="container" style="width: 1000px;">
         <div class="choice" id="dialougeBox2"></div>
         <h2 id="story2"></h2>
-        <div id="tileText"> Magic Forest by the mountain</div>
+        <div id="tileText"></div>
         <img id="splash" src="backgrounds/1.png">
         <div class="choice" id="yes" onclick="FightTrigger(true)">>>YES<<</div>
         <div class="choice" id="no" onclick="FightTrigger(false)">>>NO<<</div>
