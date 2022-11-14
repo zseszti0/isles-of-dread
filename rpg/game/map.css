@@ -40,6 +40,11 @@ body {
     position: absolute;
 }
 
+#dragonMapSprite {
+    height: 7vw;
+    position: absolute;
+}
+
 #splash {
     position: absolute;
     width: 188px;
@@ -60,11 +65,11 @@ body {
 }
 
 #dialougeBox2 {
-    left: 80px;
+    left: 270px;
     right: 5vw;
     top: 600px;
     height: 50px;
-    width: 600px;
+    width: 520px;
 }
 #story2 {
     font-family: 'pixelfont'; 
@@ -73,11 +78,11 @@ body {
     text-align: left;
 
     top: 590px;
-    left: 100px;
+    left: 300px;
 }
 
 #yes {
-    left: 80px;
+    left: 270px;
     width: 70px;
     height: 30px;
     top: 670px;
@@ -98,7 +103,7 @@ body {
     }
 }
 #no {
-    left: 170px;
+    left: 360px;
     width: 70px;
     height: 30px;
     top: 670px; 

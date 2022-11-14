@@ -1,4 +1,4 @@
-let pos = 0
+let pos = 12
 let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
@@ -121,6 +121,8 @@ const enemy10 = {
     Dodge: 1,
     Story: "kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő."
 };
+
+enemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9,enemy10]
 
 //pos
 const graph = [[1,3,4],
@@ -266,12 +268,17 @@ function LoadSceneE(holVagyok)
     document.getElementById("protog").style.animation= "Run 2s forwards"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
+    LoadEnemy() 
+}
 
+function LoadEnemy() 
+{
     //random enemy
     var randomEnemy =  Math.floor(Math.random() * 10) + 1;
     document.getElementById("enemy").src = ("enemy/enemy"+randomEnemy+".png")
-    curEnemy = "enemy" + randomEnemy
 
+    console.log("random enemy" + randomEnemy)
+    curEnemy = randomEnemy - 1
 }
 function BattleStart()
 {
@@ -305,65 +312,11 @@ function enemyInfo() {
 
     document.getElementById("infoText").style.animation= "fadeIn 1.5s 0.7s forwards"
 
-    console.log(curEnemy)
+    console.log("enemy index"+curEnemy)
+    console.log("enemy"+curEnemy)
 
-    // sheesh :gtrimace:
-    if(curEnemy == "enemy1")
-    {
-        console.log("enemy 1")
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy1.name +"<br>"+"HP: "+enemy1.Hp +"    "+"Difficulty"+enemy1.diff+"<br><br>"+"Describtion: "+enemy1.Story
-    }
-    else if(curEnemy == "enemy2")
-    {
-        console.log("enemy 2")
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy2.name +"<br>"+"HP: "+enemy2.Hp +"    "+"Difficulty"+enemy2.diff+"<br><br>"+"Describtion: "+enemy2.Story
-    }
-    else if(curEnemy == "enemy3")
-    {
-        console.log("enemy 3")
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy3.name +"<br>"+"HP: "+enemy3.Hp +"    "+"Difficulty"+enemy3.diff+"<br><br>"+"Describtion: "+enemy3.Story
-    }
-    else if(curEnemy == "enemy4")
-    {
-        console.log("enemy 4")
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy4.name +"<br>"+"HP: "+enemy4.Hp +"    "+"Difficulty"+enemy4.diff+"<br><br>"+"Describtion: "+enemy4.Story
-    }
-    else if(curEnemy == "enemy5")
-    {
-        console.log("enemy 5")
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy5.name +"<br>"+"HP: "+enemy5.Hp +"    "+"Difficulty"+enemy5.diff+"<br><br>"+"Describtion: "+enemy5.Story
-    }
-    else if(curEnemy == "enemy6")
-    {
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy6.name +"<br>"+"HP: "+enemy6.Hp +"    "+"Difficulty"+enemy6.diff+"<br><br>"+"Describtion: "+enemy6.Story
-    }
-    else if(curEnemy == "enemy7")
-    {
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy7.name +"<br>"+"HP: "+enemy7.Hp +"    "+"Difficulty"+enemy7.diff+"<br><br>"+"Describtion: "+enemy7.Story
-    }
-    else if(curEnemy == "enemy8")
-    {
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy8.name +"<br>"+"HP: "+enemy8.Hp +"    "+"Difficulty"+enemy8.diff+"<br><br>"+"Describtion: "+enemy8.Story
-    }
-    else if(curEnemy == "enemy9")
-    {
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy9.name +"<br>"+"HP: "+enemy9.Hp +"    "+"Difficulty"+enemy9.diff+"<br><br>"+"Describtion: "+enemy9.Story
-    }
-    else if(curEnemy == "enemy10")
-    {
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+enemy10.name +"<br>"+"HP: "+enemy10.Hp +"    "+"Difficulty"+enemy10.diff+"<br><br>"+"Describtion: "+enemy10.Story
-    }
-    
+    document.getElementById("infoText").innerHTML = 
+    "Name: "+enemies[curEnemy].name +"<br>"+"HP: "+enemies[curEnemy].Hp +"    "+"Difficulty"+enemies[curEnemy].diff+"<br><br>"+"Describtion: "+enemies[curEnemy].Story
     
 }
   
@@ -507,6 +460,8 @@ function ShowMap(){
 }
 
 function elerheto() {
+
+    console.log("elereheto")
     document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
     {
@@ -520,6 +475,13 @@ function elerheto() {
     document.getElementById("a"+pos).innerHTML="<img class=MapSprite src=knight/Knight_1/Normal.png>"
 
     document.getElementById("tileText").style.display = "none"
+    console.log("pos done")
+
+    //sárkány mező
+    console.log("sarkany")
+    document.getElementById("a58").style.display="block"
+    document.getElementById("a58").style.cursor="pointer"
+    console.log("sarkany done")
 }
 
 function skill3()

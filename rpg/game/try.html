@@ -7,50 +7,116 @@
     <title>Document</title>
 
     <style>
-        #kep {
-            background: url("information.png") no-repeat;
-            background-size: 90%;
-            text-align: center;
-            margin: auto;
-        }
-
-        @keyframes kepFadeIn1 {
-            0% {
-                height: 2vw;
-                width: 0vw;
-            }
-            50% {
-                height: 2vw;
-                width: 50vw;
-            }
-            100% {
-                height: 30vw;
-                width: 50vw;
-            }
-        }
     </style>
 </head>
 <body>
-    <div id="kep"></div>
+        <script>
+            const enemy1 = {
+    name: "Goblin",
+    Hp: 1700,
+    Atk: 100,
+    diff: 1,
+    Cr: 1,
+    Speed: 0,
+    Dodge: 3,
+    Story: "cheeky goblin.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy2 = {
+    name: "Snek",
+    Hp: 1500,
+    Atk: 170,
+    diff: 1,
+    Cr: 3,
+    Speed: 1,
+    Dodge: 1,
+    Story: "poisönösz snake.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy3 = {
+    name: "Mermaid",
+    Hp: 2100,
+    Atk: 60,
+    diff: 1,
+    Cr: 2,
+    Speed: 1,
+    Dodge: 7,
+    Story: "hot :hotface_emoji:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy4 = {
+    name: "Crab",
+    Hp: 2000,
+    Atk: 100,
+    diff: 1,
+    Cr: 6,
+    Speed: 2,
+    Dodge: 1,
+    Story: "a strong crab.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy5 = {
+    name: "Ningyo",
+    Hp: 2300,
+    Atk: 200,
+    diff: 1,
+    Cr: 2,
+    Speed: 1,
+    Dodge: 2,
+    Story: "hot legs :eyes:.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy6 = {
+    name: "Kentaur",
+    Hp: 3000,
+    Atk: 170,
+    diff: 1,
+    Cr: 4,
+    Speed: 1,
+    Dodge: 2,
+    Story: "verz tanky sheesh.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy7 = {
+    name: "Birb.",
+    Hp: 2000,
+    Atk: 300,
+    diff: 1,
+    Cr: 7,
+    Speed: 4,
+    Dodge: 5,
+    Story: "Birb. Chirp.strong but fragileLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy8 = {
+    name: "minatarusz (idk dyslekszia)",
+    Hp: 2700,
+    Atk: 250,
+    diff: 1,
+    Cr: 4,
+    Speed: 1,
+    Dodge: 1,
+    Story: "tank strong thats it. slow tho and bigLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also "
+};
+const enemy9 = {
+    name: "ork",
+    Hp: 4000,
+    Atk: 250,
+    diff: 1,
+    Cr: 3,
+    Speed: 1,
+    Dodge: 3,
+    Story: "org."
+};
+const enemy10 = {
+    name: "stone golem",
+    Hp: 5000,
+    Atk: 300,
+    diff: 1,
+    Cr: 7,
+    Speed: 1,
+    Dodge: 1,
+    Story: "kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő."
+};
 
+    curEnemy= 8
+        
+    enemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9,enemy10]
 
-    function enemyInfo() {
-        document.getElementById("infoText").style.animation= "fadeIn 1.5s 0.7s forwards"
-    
-        document.getElementById("infoText").innerHTML = 
-        "Name: "+this.name +"<br>"+"HP: "+this.Hp +"    "+"Difficulty"+this.diff+"<br><br>"+"Describtion: "+this.Story
-    }
-      
-    enemy1.enemyInfo = enemyInfo;
-    enemy2.enemyInfo = enemyInfo;
-    enemy3.enemyInfo = enemyInfo;
-    enemy4.enemyInfo = enemyInfo;
-    enemy5.enemyInfo = enemyInfo;
-    enemy6.enemyInfo = enemyInfo;
-    enemy7.enemyInfo = enemyInfo;
-    enemy8.enemyInfo = enemyInfo;
-    enemy9.enemyInfo = enemyInfo;
-    enemy10.enemyInfo = enemyInfo;
-
+    console.log(enemies[curEnemy].name)
+        </script>
 </body>
 </html>
