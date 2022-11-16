@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Isles Of Dread: Fighting the monster called destiny</title>
     
     
     <link rel="stylesheet" href="points.css">
@@ -40,7 +40,6 @@
     <div id="container" style="width: 1000px;">
         <div class="choice" id="dialougeBox2"></div>
         <h2 id="story2"></h2>
-        <div id="tileText"></div>
         <img id="splash" src="backgrounds/1.png">
         <div class="choice" id="yes" onclick="FightTrigger(true)">>>YES<<</div>
         <div class="choice" id="no" onclick="FightTrigger(false)">>>NO<<</div>
@@ -105,6 +104,11 @@
         <div class="point" id="a56" onclick="MainE(56)" onmouseover="tileText(56)" onmouseleave="NotileText()"></div>
         <div class="point" id="a57" onclick="MainE(57)" onmouseover="tileText(57)" onmouseleave="NotileText()"></div>
         <div class="point" id="a58" onclick="MainE(58)" onmouseover="tileText(58)" onmouseleave="NotileText()"><img id="dragonMapSprite" src="enemy/dragon.png"></div>
+
+        <div class="point" id="current" onclick="charInfo()"><img class="MapSprite" src="knight/Knight_1/Normal.png"></div>
+
+        <div id="tileText"></div>
+        <div id="charInfoText">Char info placehoarder</div>
     </div>
 
     <script src="map.js"></script>

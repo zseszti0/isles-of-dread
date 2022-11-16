@@ -63,6 +63,16 @@ body {
     text-align: center;
     position: absolute;
 }
+#charInfoText {
+    height: 1vw;
+    width: 20vw;
+    padding: 2px;
+    background-color: rgba(250, 235, 215, 0.836);
+    border: 3px solid black;
+    font-family: 'pixelfont';
+    text-align: center;
+    position: absolute;
+}
 
 #dialougeBox2 {
     left: 270px;

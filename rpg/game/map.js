@@ -1,4 +1,4 @@
-let pos = 12
+let pos = 0
 let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
@@ -63,8 +63,8 @@ const enemy4 = {
 };
 const enemy5 = {
     name: "Ningyo",
-    Hp: 2300,
-    Atk: 200,
+    Hp: 300,
+    Atk: 250,
     diff: 1,
     Cr: 2,
     Speed: 1,
@@ -271,15 +271,59 @@ function LoadSceneE(holVagyok)
     LoadEnemy() 
 }
 
+function randomNum(start,end)
+    {
+        return Math.floor(Math.random() * (end - start + 1) + start);
+    }
+
 function LoadEnemy() 
 {
+    var randomEnemy = 0
+
+    if(0<=pos && pos<7)
+    {
+        randomEnemy =  randomNum(1,2)
+        console.log(randomEnemy)
+        console.log("1-2 között")
+    }
+    if(7<=pos && pos<13)
+    {
+        randomEnemy =  randomNum(1,4)
+        console.log(randomEnemy)
+        console.log("1-4 között")
+    }
+    if(13<=pos && pos<18)
+    {
+        randomEnemy =  randomNum(2,5)
+        console.log(randomEnemy)
+        console.log("2-5 között")
+    }
+    if(18<=pos && pos<27)
+    {
+        randomEnemy =  randomNum(4,7)
+        console.log(randomEnemy)
+        console.log("4-7 között")
+    }
+    if(27<=pos && pos<37)
+    {
+        randomEnemy =  randomNum(4,8)
+        console.log(randomEnemy)
+        console.log("4-8 között")
+    }
+    if(37<=pos)
+    {
+        randomEnemy =  randomNum(6,10)
+        console.log(randomEnemy)
+        console.log("6-10 között")
+    }
+    
     //random enemy
-    var randomEnemy =  Math.floor(Math.random() * 10) + 1;
     document.getElementById("enemy").src = ("enemy/enemy"+randomEnemy+".png")
 
     console.log("random enemy" + randomEnemy)
     curEnemy = randomEnemy - 1
 }
+
 function BattleStart()
 {
     document.getElementById("fightButton").style.display = "none"
@@ -303,7 +347,7 @@ function BattleStart()
     turn()
 
 }
-// :) temporary i cant do better
+
 function enemyInfo() {
 
     document.getElementById("cinematic").style.display = "block"
@@ -435,8 +479,8 @@ function skill1()
 function enemyTurn()
 {
     Hp -= 10
-    document.getElementById("enemy").style.animation= "EnemyAttack 2s forwards"
-    document.getElementById("protog").style.animation= "Defend 2s forwards"
+    //document.getElementById("enemy").style.animation= "EnemyAttack 2s forwards"
+    //document.getElementById("protog").style.animation= "Defend 2s forwards"
     document.getElementById("CHP").innerHTML = Hp
     turn()
 }
@@ -458,10 +502,26 @@ function ShowMap(){
 
     elerheto()
 }
+var Offset = function(element) {
+    var top = 0, left = 0;
+    do {
+        top += element.offsetTop  || 0;
+        left += element.offsetLeft || 0;
+        element = element.offsetParent;
+    } while(element);
+
+    return {
+        top: top,
+        left: left
+    };
+};
 
 function elerheto() {
 
     console.log("elereheto")
+    var curTop = (Offset(document.getElementById("a"+pos)).top + "px")
+    var curLeft = ((Offset(document.getElementById("a"+pos)).left -(window.innerWidth - 1000)/2 + "px"))
+    console.log(curTop,curLeft)
     document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
     {
@@ -471,8 +531,16 @@ function elerheto() {
     }
     
     document.getElementById("a"+pos).style.cursor="default"
-    document.getElementById("a"+pos).style.display="block"
-    document.getElementById("a"+pos).innerHTML="<img class=MapSprite src=knight/Knight_1/Normal.png>"
+    document.getElementById("a"+pos).style.display="none"
+
+    document.getElementById("current").style.display="block"
+    document.getElementById("current").style.cursor="pointer"
+
+    console.log("szar")
+
+    document.getElementById("current").style.top = curTop
+    document.getElementById("current").style.left = curLeft
+    console.log(Offset(document.getElementById("current")).left)
 
     document.getElementById("tileText").style.display = "none"
     console.log("pos done")
@@ -500,6 +568,8 @@ function tileText(holVagyok){
     document.getElementById("tileText").innerHTML = tileTexts["tile"+holVagyok]
 }
 function NotileText(){document.getElementById("tileText").style.display = "none"}
+
+function charInfo(){document.getElementById("tileText").style.display = "none"}
 
 
 //SEGÉD FUNCTIONS
