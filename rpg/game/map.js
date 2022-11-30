@@ -1,4 +1,4 @@
-let pos = 0
+let pos = 1
 let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
@@ -6,7 +6,7 @@ let fightTriggerVar = false
 
 //base stats
 let Cname = "Barni a hős"
-let Atk = 130
+let CAtk = 130
 let Hp = 1000
 let Def = 10
 let Sgth = 1 //atk % szoró
@@ -427,14 +427,15 @@ function skill2(){
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
     {
-        enemyHP -= (Atk*Sgth)*(1000/enemyHP)*Cd
+        enemyHP -= (CAtk*Sgth)*(1000/enemyHP)*Cd
         console.log((1000/enemyHP))
         Energy += 30
         console.log("crit")
     }
     else
     {
-        enemyHP -= Atk*Sgth*(1000/enemyHP)
+        enemyHP -= C
+        Atk*Sgth*(1000/enemyHP)
         console.log((5000/enemyHP))
         Energy += 20
     }
@@ -456,14 +457,14 @@ function skill1()
     var crit =  Math.floor(Math.random() * 10) + 1;
     if (Cr >= crit)
     {
-        enemyHP -= Atk*Sgth*Cd
+        enemyHP -= CAtk*Sgth*Cd
         Energy += 30
         console.log("crit")
 
     }
     else
     {
-        enemyHP -= Atk*Sgth
+        enemyHP -= CAtk*Sgth
         Energy += 20
     }
     document.getElementById("enemyHP").innerHTML = enemyHP
@@ -543,6 +544,11 @@ function elerheto() {
     console.log(Offset(document.getElementById("current")).left)
 
     document.getElementById("tileText").style.display = "none"
+    document.getElementById("charInfoText").style.display = "none"
+
+    document.getElementById("mapCinematic").style.display = "none"
+    document.getElementById("charInfo").style.display = "none"
+
     console.log("pos done")
 
     //sárkány mező
@@ -562,19 +568,45 @@ function skill3()
 function tileText(holVagyok){
     document.getElementById("splash").src = ("backgrounds/" + holVagyok + ".png")
     document.getElementById("tileText").style.display = "block"
-    mousePos()
+    mousePos("tileText")
 
     document.getElementById("tileText").style.animation= "fadeIn 1s forwards"
     document.getElementById("tileText").innerHTML = tileTexts["tile"+holVagyok]
 }
-function NotileText(){document.getElementById("tileText").style.display = "none"}
 
-function charInfo(){document.getElementById("tileText").style.display = "none"}
+function charInfoTile(){
+    document.getElementById("splash").src = ("backgrounds/" + pos + ".png")
+    document.getElementById("charInfoText").style.display = "block"
+    mousePos("charInfoText")
 
+    document.getElementById("charInfoText").style.animation= "fadeIn 1s forwards"
+    document.getElementById("charInfoText").innerHTML = "<span id='charInfoTextHpAtk'>"+ Atk + "<br>" + Hp + "</span>"
+}
 
-//SEGÉD FUNCTIONS
+function NotileText(){document.getElementById("tileText").style.display = "none"
+document.getElementById("splash").src = ("backgrounds/emptySplash.png")}
+
+function charInfo()
+{
+    document.getElementById("mapCinematic").style.display = "block"
+    document.getElementById("charInfo").style.display = "block"
+
+    document.getElementById("tableCharName").innerHTML = Cname
+    document.getElementById("tableAtk").innerHTML = CAtk
+    document.getElementById("tableDef").innerHTML = Def
+    document.getElementById("tableCritDmg").innerHTML = Cd
+    document.getElementById("tableCritRate").innerHTML = Cr
+    document.getElementById("tableSpeed").innerHTML = Speed
+    document.getElementById("tableDodge").innerHTML = Dodge
+
+    //document.querySelectorAll(".tableInfo").forEach(image => {image.style.animation = "fadeIn 1s 1sforwards"})
+}
+function noCharInfo(){document.getElementById("charInfoText").style.display = "none"
+document.getElementById("splash").src = ("backgrounds/emptySplash.png")}
+
+//SEGÉD FUNCTIONS lopotak xddd funny face
 //!!
-function mousePos()
+function mousePos(id)
 {
     var e = window.event;
 
@@ -582,13 +614,13 @@ function mousePos()
     var posY = e.clientY;
 
     console.log(posX,posY)
-    document.getElementById("tileText").style.left = (posX - (window.innerWidth - 1000)/2 + "px")
+    document.getElementById(id).style.left = (posX - (window.innerWidth - 1000)/2 + 20 + "px")
     console.log(posX - (window.innerWidth - 1000)/2 + "px")
-    document.getElementById("tileText").style.top = (posY + "px")
+    document.getElementById(id).style.top = (posY - 20 + "px")
 }
 let letterByLetter = function(target, message, index, interval) {
     if (index < message.length) {
-      document.querySelector(target).textContent = message.slice(0, index);
+      document.querySelector(target).innerHTML = message.slice(0, index);
   
       setTimeout(function() {
         letterByLetter(target, message, index + 1, interval);

@@ -32,6 +32,16 @@ body {
     height: 70vh;
 }
 
+#mapCinematic {
+    position: absolute;
+    top: 18px;
+    left: 13px;
+    width: 974px;
+    height: 706px;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: block;
+}
+
 .MapSprite {
     height: 3vw;
     bottom: 0.1vw;
@@ -64,14 +74,86 @@ body {
     position: absolute;
 }
 #charInfoText {
-    height: 1vw;
-    width: 20vw;
-    padding: 2px;
-    background-color: rgba(250, 235, 215, 0.836);
-    border: 3px solid black;
-    font-family: 'pixelfont';
-    text-align: center;
     position: absolute;
+    height: 70px;
+    width: 100px;
+    background-image: url("charInfoTile.png");
+    background-size: 100px 70px;
+}
+#charInfoTextHpAtk {
+    position: absolute;
+    left: 40px;
+    top: 11px;
+    line-height: 1.3;
+    font-family: "descFont";
+    color: black;
+}
+
+.tableInfo {
+    background-color: blueviolet;
+    position: absolute;
+}
+#tableCharName {
+    top: 70px;
+    left: 30px;
+}
+#tableAtk {
+    top: 150px;
+    left: 100px;
+}
+#tableDef {
+    top: 200px;
+    left: 100px;
+}
+#tableCritRate {
+    top: 370px;
+    left: 80px;
+}
+#tableCritDmg {
+    top: 330px;
+    left: 80px;
+}
+#tableDodge {
+    top: 330px;
+    left: 210px;
+}
+#tableSpeed {
+    top: 370px;
+    left: 210px;
+}
+
+
+
+#charInfo {
+    width: 400px;
+    height: 600px;
+    left: 100px;
+    top: 70px;
+    
+
+    position: absolute;
+    animation: mapInfoFadeIn 0.5s forwards;
+    animation-delay: block;
+}
+@keyframes mapInfoFadeIn {
+    0% {
+        height: 100px;
+        width: 0px;
+        background: url("infoFadeIn.png");
+        background-size: 0px 100px;
+    }
+    50% {
+        height: 100px;
+        width: 400px;
+        background: url("infoFadeIn.png");
+        background-size: 400px 100px;
+    }
+    100% {
+        height: 600px;
+        width: 400px;
+        background: url("card.png");
+        background-size: 400px 600px;
+    }
 }
 
 #dialougeBox2 {
@@ -181,7 +263,6 @@ body {
     background: url("information.png") no-repeat;
     background-size: 40vw 25vw;
     position: absolute;
-
 }
 
 #infoText {
@@ -210,6 +291,7 @@ body {
         width: 40vw;
     }
 }
+
 
 #fight {
     position: absolute;
