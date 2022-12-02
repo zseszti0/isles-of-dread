@@ -1,13 +1,16 @@
+
 let pos = 1
 let enemyHP = 1000
 let TurnCount = 0
 let UsedInLastTurn = false
 let fightTriggerVar = false
+let isPlaying = false
 
 //base stats
 let Cname = "Barni a hős"
 let CAtk = 130
-let Hp = 1000
+let Hp = 600
+let MaxHp = 1000
 let Def = 10
 let Sgth = 1 //atk % szoró
 let Cd = 1.5 //% szoró
@@ -16,6 +19,21 @@ let Speed = 2
 let Dodge = 0.1 //%szorzó
 let UltCost = 100 //max cost
 let Energy = 0
+
+const skill1Desc = {
+    Name: "Sweeping Swipe",
+    Desc: "The hero dashes forward to srtike the enemies with one single swing of his mighty sword"
+}
+const skill2Desc = {
+    Name: "Double Death",
+    Desc: "The hero stirkes forward with his dual blades striking his enemies' head of with a powerful move"
+}
+const skill3Desc = {
+    Name: "Godly Earth Destroyer",
+    Desc: "The hero sticks his blade into the ground creating a powerful beam that destroys everything in its path"
+}
+
+let skillDescs = [skill1Desc,skill2Desc,skill3Desc]
 
 
 //ENEMIES TEMPLATE
@@ -122,7 +140,7 @@ const enemy10 = {
     Story: "kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő.kő."
 };
 
-enemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9,enemy10]
+let enemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9,enemy10]
 
 //pos
 const graph = [[1,3,4],
@@ -245,17 +263,19 @@ function MainE (holVagyok)
 }
 
 function LoadSceneE(holVagyok)
-{
-    
-    document.getElementById("dialougeBox").style.display = "block"
-    //document.getElementById("dialogueBox").style.animation = "dialBox 1s forwards"
-    document.getElementById("story").innerHTML = "AN enemy appears lets fight it!!"
-
-    setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
+{   
+    //setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
     pos = holVagyok
     document.getElementById("container").style.display = "none"
     //map bejon 
     document.getElementById("battlefield").style.display = "block"
+    document.getElementById("dialougeBox").style.display = "none"
+
+    //DIAL BOX
+    setTimeout(() => {document.getElementById("dialougeBox").style.display = "block"}, 2000);
+    setTimeout(() => {letterByLetter("#story","AN enemy appears lets fight it!!",0,20)}, 3000)
+    
+    //document.getElementById("dialogueBox").style.animation = "dialBox 1s forwards"
 
     //fighr scene clickables
     //!!
@@ -332,6 +352,7 @@ function BattleStart()
     //document.getElementById("fight").style.display = "none"
 
     document.getElementById("dialougeBox").style.display = "none"
+    document.getElementById("story").style.display = "none"
 
     document.getElementById("skill1").style.display = "block"
     document.getElementById("skill2").style.display = "block"
@@ -489,6 +510,7 @@ function enemyTurn()
 function ShowMap(){
 
     document.getElementById("container").style.display = "block"
+    document.getElementById("volumeChanger").value = 0.8
 
     document.getElementById("skill1").style.display = "none"
     document.getElementById("skill2").style.display = "none"
@@ -580,7 +602,7 @@ function charInfoTile(){
     mousePos("charInfoText")
 
     document.getElementById("charInfoText").style.animation= "fadeIn 1s forwards"
-    document.getElementById("charInfoText").innerHTML = "<span id='charInfoTextHpAtk'>"+ Atk + "<br>" + Hp + "</span>"
+    document.getElementById("charInfoText").innerHTML = "<span id='charInfoTextHpAtk'>"+ CAtk + "<br>" + Hp + "</span>"
 }
 
 function NotileText(){document.getElementById("tileText").style.display = "none"
@@ -594,16 +616,43 @@ function charInfo()
     document.getElementById("tableCharName").innerHTML = Cname
     document.getElementById("tableAtk").innerHTML = CAtk
     document.getElementById("tableDef").innerHTML = Def
-    document.getElementById("tableCritDmg").innerHTML = Cd
-    document.getElementById("tableCritRate").innerHTML = Cr
+    document.getElementById("tableCritDmg").innerHTML = Cd*100 + "%"
+    document.getElementById("tableCritRate").innerHTML = Cr*10 + "%"
     document.getElementById("tableSpeed").innerHTML = Speed
-    document.getElementById("tableDodge").innerHTML = Dodge
+    document.getElementById("tableDodge").innerHTML = Dodge*100 + "%"
 
-    //document.querySelectorAll(".tableInfo").forEach(image => {image.style.animation = "fadeIn 1s 1sforwards"})
+    console.log(320*Hp/MaxHp)
+    document.getElementById("tableHpBar").style.backgroundSize = (320*Hp/MaxHp + "px 20px")
+    document.getElementById("tableHpBar").title = Hp + "/" + MaxHp
 }
 function noCharInfo(){document.getElementById("charInfoText").style.display = "none"
 document.getElementById("splash").src = ("backgrounds/emptySplash.png")}
 
+function SkillDesc(skillNum) {
+    document.getElementById("tableSkillText").innerHTML = skillDescs[skillNum].Desc
+    document.getElementById("tableSkillName").innerHTML = skillDescs[skillNum].Name
+    
+}
+
+function audioContorl() {
+    if (isPlaying){
+        document.getElementById("music").pause()
+        isPlaying = false
+        document.getElementById("musicButton").style.backgroundImage= "url(isNotPlaying.png)"
+        console.log("paused")
+    }
+    else{
+        document.getElementById("music").play()
+        isPlaying = true
+        document.getElementById("musicButton").style.backgroundImage= "url(isPlaying.png)"
+        console.log("playing")
+    }
+}
+
+function setVolumeSlider() {
+    console.log("volume set")
+    document.getElementById("music").volume = document.getElementById("volumeChanger").value
+}
 //SEGÉD FUNCTIONS lopotak xddd funny face
 //!!
 function mousePos(id)

@@ -9,10 +9,13 @@
     
     <link rel="stylesheet" href="points.css">
     <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="animation.css">
 
     <link rel="icon" href="logo.png">
+    
 </head>
 <body>
+    <audio src="login.mp3" id="music" loop></audio>
     <div id="battlefield">
         <img id="bg" src="">
         <button onclick="BattleStart()" id="fightButton">FIGHT</button>
@@ -29,7 +32,8 @@
         
         <div><img id="skill3CD" src="skill3CD.png"></div>
         <h2 id="energy"></h2>
-        <div id="dialougeBox"><h2 id="story"></h2></div>
+        <div id="dialougeBox"></div>
+        <h2 id="story"></h2>
         <img id="fight" src="fight.png">
         <img id="cinematic" src="">
         <div id="infoTab" onclick="document.getElementById('infoTab').style.display = 'none'; document.getElementById('cinematic').style.display = 'none' "><p id="infoText"></p></div>
@@ -41,6 +45,10 @@
         <div class="choice" id="dialougeBox2"></div>
         <h2 id="story2"></h2>
         <img id="splash" src="backgrounds/emptySplash.png">
+        <div id="soundControl" onmouseleave="document.getElementById('volumeChanger').style.display = 'none'">
+            <button onclick="audioContorl()" id="musicButton" onmouseover="document.getElementById('volumeChanger').style.display = 'block'"></button>
+        <input type="range" name="" id="volumeChanger" min="0" max="1" step="0.01" oninput="setVolumeSlider()">
+        </div>
         <div class="choice" id="yes" onclick="FightTrigger(true)">>>YES<<</div>
         <div class="choice" id="no" onclick="FightTrigger(false)">>>NO<<</div>
         <img id="map" src="map.png" width="1000px">
@@ -113,19 +121,23 @@
         <img id="mapCinematic" src="backgrounds/infoOveray.png">
         <div id="charInfo" onclick="document.getElementById('charInfo').style.display = 'none'; document.getElementById('mapCinematic').style.display = 'none' ">
             <div class="tableInfo" id="tableCharName"></div>
-            <div class="tableInfo" id="tablePortrait"></div>
+            <div class="tableInfo" id="tablePortrait" title="Very Handsome"></div>
             <div class="tableInfo" id="tableAtk"></div>
             <div class="tableInfo" id="tableDef"></div>
             <div class="tableInfo" id="tableHpBar"></div>
+            <div class="tableInfo" id="tableCritDmgPic" title="Crit Damage"></div>
             <div class="tableInfo" id="tableCritDmg"></div>
+            <div class="tableInfo" id="tableCritRatePic" title="Crit Chance"></div>
             <div class="tableInfo" id="tableCritRate"></div>
+            <div class="tableInfo" id="tableSpeedPic" title="Speed"></div>
             <div class="tableInfo" id="tableSpeed"></div>
+            <div class="tableInfo" id="tableDodgePic" title="Dodge Chance"></div>
             <div class="tableInfo" id="tableDodge"></div>
             <div class="tableInfo" id="tableSkillName"></div>
-            <div class="tableInfo" id="tableSkillText"></div>
-            <div class="tableInfo" id="tableSkill1"></div>
-            <div class="tableInfo" id="tableSkill2"></div>
-            <div class="tableInfo" id="tableSkill3"></div>
+            <div class="tableInfo" id="tableSkillText">[skill description]</div>
+            <div class="tableInfo" id="tableSkill1" onmouseover="SkillDesc(0)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
+            <div class="tableInfo" id="tableSkill2" onmouseover="SkillDesc(1)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
+            <div class="tableInfo" id="tableSkill3" onmouseover="SkillDesc(2)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
         </div>
     </div>
 

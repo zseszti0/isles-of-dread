@@ -11,7 +11,7 @@
 body {
     font-size: larger;
     cursor: default;
-    background: url("texture.png");
+    background: black;
     background-size: 100%;
 }
 
@@ -22,6 +22,30 @@ body {
     width: 70vw;
     height: 70vh;
     border: 3px solid black;
+}
+#soundControl {
+    position: absolute;
+    top: 130px;
+    left: 800px;
+    width: 160px;
+    height: 100px;
+    text-align: center;
+}
+#musicButton {
+    background: url("isNotPlaying.png") no-repeat;
+    background-size: 100%;
+    width: 100px;
+    height: 60px;
+    border: none;
+    margin-bottom: 10px;
+}
+#musicButton:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#volumeChanger {
+    display: none;
+    margin: auto;
 }
 
 #cinematic {
@@ -90,12 +114,25 @@ body {
 }
 
 .tableInfo {
-    background-color: blueviolet;
+    font-family: "descFont";
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.754), 1px -1px 0 rgba(0, 0, 0, 0.754), -1px 1px 0 rgba(0, 0, 0, 0.754), 1px 1px 0 rgba(0, 0, 0, 0.754);
     position: absolute;
+    color: rgb(175, 175, 175);
+    animation: fadeIn 1s forwards;
+    animation-delay: block 2s;
 }
 #tableCharName {
     top: 70px;
     left: 30px;
+    font-size: larger;
+}
+#tablePortrait {
+    background: url("knight/Knight_1/Attack1.png") no-repeat;
+    background-size: 100%;
+    top: 15px;
+    left: 180px;
+    height: 300px;
+    width: 200px;
 }
 #tableAtk {
     top: 150px;
@@ -105,21 +142,98 @@ body {
     top: 200px;
     left: 100px;
 }
+#tableHpBar {
+    background: url("HpBar.png") no-repeat;
+    top: 279px;
+    left: 43px;
+    width: 320px;
+    height: 20px;
+}
+
+#tableCritRatePic {
+    background: url("CritRate.png") no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    top: 373px;
+    left: 55px;
+}
 #tableCritRate {
-    top: 370px;
-    left: 80px;
+    top: 383px;
+    left: 110px;
+}
+#tableCritDmgPic {
+    background: url("CritDmg.png") no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    top: 325px;
+    left: 55px;
 }
 #tableCritDmg {
-    top: 330px;
-    left: 80px;
+    top: 337px;
+    left: 110px;
+}
+#tableDodgePic {
+    background: url("Dodge.png") no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    top: 325px;
+    left: 200px;
 }
 #tableDodge {
-    top: 330px;
-    left: 210px;
+    top: 337px;
+    left: 250px;
+}
+#tableSpeedPic {
+    background: url("speed.png") no-repeat;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    top: 373px;
+    left: 200px;
 }
 #tableSpeed {
-    top: 370px;
+    top: 383px;
+    left: 250px;
+}
+#tableSkillName {
+    top: 435px;
+    left: 90px;
+}
+#tableSkillText {
+    top: 465px;
+    left: 40px;
+    height: 80px;
+    width: 167px;
+    text-align: left;
+    font-size: 17px;
+    text-align: center;
+}
+#tableSkill1 {
+    background: url("skill1false.png") no-repeat;
+    background-size: 100%;
+    top: 460px;
     left: 210px;
+    height: 40px;
+    width: 40px;
+}
+#tableSkill2 {
+    background: url("skill2false.png") no-repeat;
+    background-size: 100%;
+    top: 505px;
+    left: 210px;
+    height: 40px;
+    width: 40px;
+}
+#tableSkill3 {
+    background: url("skill3false.png") no-repeat;
+    background-size: 100%;
+    top: 460px;
+    left: 260px;
+    height: 80px;
+    width: 80px;
 }
 
 
@@ -257,11 +371,13 @@ body {
     background-size: 4vh 4vh;
     border: none;
 }
+#infoButton:hover {
+    transform: scale(1.2);
+}
 #infoTab {
     left: 5vw;
-    top: 12vw;
-    background: url("information.png") no-repeat;
-    background-size: 40vw 25vw;
+    top: 10vw;
+    
     position: absolute;
 }
 
@@ -279,16 +395,22 @@ body {
 
 @keyframes infoFadeIn {
     0% {
-        height: 2vw;
+        height: 4vw;
         width: 0vw;
+        background: url("infoFadeIn.png") no-repeat;
+        background-size: 0vw 4vw;
     }
     50% {
-        height: 2vw;
+        height: 4vw;
         width: 40vw;
+        background: url("infoFadeIn.png") no-repeat;
+        background-size: 40vw 4vw;
     }
     100% {
         height: 25vw;
         width: 40vw;
+        background: url("information.png") no-repeat;
+        background-size: 40vw 25vw;
     }
 }
 
@@ -388,8 +510,8 @@ body {
 }
 
 #fightButton {
-    top: 200px;
-    left: 100px;
+    top: 20vw;
+    left: 35vw;
     position: absolute;
 }
 
@@ -404,185 +526,13 @@ body {
     background-color: rgba(240, 248, 255, 0.733);
     border: 3px solid black;
     font-family: 'pixelfont';
+    animation: dialBox 1s reverse forwards;
+    animation-delay: block;
 }
 #story {
+    position: absolute;
     text-align: left;
-    white-space: pre-wrap;
-}
-
-@keyframes dialBox {
-    0% {
-        opacity: 1;
-    }
-    69% {
-        opacity: 1;
-    }
-    70% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 0;
-    }
-    80% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        display: block;
-        opacity: 0;
-    }
-    100% {
-        display: block;
-        opacity: 1;
-    }
-}
-
-@keyframes Run {
-    0% {
-        left: 0vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
-    12% {
-        left: 1vw;
-        content: url("knight/Knight_1/Run1.png");
-    }
-    25% {
-        left: 2vw;
-        content: url("knight/Knight_1/Run2.png");
-    }
-    37% {
-        left: 3vw;
-        content: url("knight/Knight_1/Run3.png");
-    }
-    50% {
-        left: 4vw;
-        content: url("knight/Knight_1/Run4.png");
-    }
-    62% {
-        left: 5vw;
-        content: url("knight/Knight_1/Run5.png");
-    }
-    75% {
-        left: 6vw;
-        content: url("knight/Knight_1/Run6.png");
-    }
-    87% {
-        left: 7vw;
-        content: url("knight/Knight_1/Run7.png");
-    }
-    100% {
-        left: 8vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
-}
-
-@keyframes Attack {
-    0% {
-        left: 8vw;
-        content: url("knight/Knight_1/Attack1.png");
-    }
-    12% {
-        left: 9vw;
-        content: url("knight/Knight_1/Attack2.png");
-    }
-    25% {
-        left: 10vw;
-        content: url("knight/Knight_1/Attack3.png");
-    }
-    37% {
-        left: 11vw;
-        content: url("knight/Knight_1/Attack4.png");
-    }
-    50% {
-        left: 16vw;
-        content: url("knight/Knight_1/Attack5.png");
-    }
-    62% {
-        left: 10vw;
-        content: url("knight/Knight_1/Attack3.png");
-    }
-    75% {
-        left: 9vw;
-        content: url("knight/Knight_1/Attack2.png");
-    }
-    87% {
-        left: 8vw;
-        content: url("knight/Knight_1/Attack1.png");
-    }
-    100% {
-        left: 8vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
-}
-
-@keyframes EnemyAttack {
-    20% {
-        left: 40vw;
-    }
-    40% {
-        left: 38vw;
-    }
-    60% {
-        left: 36vw;
-    }
-    80% {
-        left: 38vw;
-    }
-    100% {
-        left: 40vw;
-    }
-}
-
-@keyframes Defend {
-    20% {
-        left: 8vw;
-        content: url("knight/Knight_1/Def1.png");
-    }
-    40% {
-        left: 6vw;
-        content: url("knight/Knight_1/Def2.png");
-    }
-    60% {
-        left: 4vw;
-        content: url("knight/Knight_1/Def2.png");
-    }
-    80% {
-        left: 6vw;
-        content: url("knight/Knight_1/Def1.png");
-    }
-    100% {
-        left: 8vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
-}
-
-@keyframes Attack2 {
-    20% {
-        left: 8vw;
-        content: url("knight/Knight_1/Attack21.png");
-    }
-    40% {
-        left: 12vw;
-        content: url("knight/Knight_1/Attack22.png");
-    }
-    60% {
-        left: 20vw;
-        content: url("knight/Knight_1/Attack23.png");
-    }
-    80% {
-        left: 12vw;
-        content: url("knight/Knight_1/Attack24.png");
-    }
-    100% {
-        left: 8vw;
-        content: url("knight/Knight_1/Protect.png");
-    }
+    left: 25vw;
+    bottom: 4vh;
+    font-family: 'pixelfont';
 }
