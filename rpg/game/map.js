@@ -1,5 +1,3 @@
-
-let pos = 0
 let enemyHP = 1000
 let TurnCount = 1
 let UsedInLastTurn = false
@@ -7,18 +5,26 @@ let fightTriggerVar = false
 let isPlaying = false
 
 //base stats
-let Cname = "Barnixx"
-let CAtk = 130
-let Hp = 400
-let MaxHp = 1000
-let Def = 10
-let Sgth = 1 //atk % szoró
-let Cd = 1.5 //% szoró
-let Cr = 1 
-let Speed = 2
-let Dodge = 0.1 //%szorzó
-let UltCost = 100 //max cost
-let Energy = 0
+let Cname
+let Cpassword
+let pos = 0
+let MaxHp
+let Hp
+let Sgth //atk % szoró
+let Def
+let CAtk
+let Cd //% szoró
+let Cr 
+let Speed
+let Dodge //%szorzó
+let UltCost//max cost
+let helmet
+let chestplate
+let leggings
+let boots
+let charm
+let Energy
+let active
 
 const skill1Desc = {
     Name: "Sweeping Swipe",
@@ -601,6 +607,34 @@ function ShowMap(){
     document.getElementById("yes").style.display = "none"
     document.getElementById("no").style.display = "none"
 
+    $(() => {
+        data = {x: Math.round(Math.random()*10+1)}
+        $.post("/rpg/game/stats.php", data, (res) => {
+            var adat = JSON.parse(res)
+            console.log(adat)
+            Cname = adat[0][0]
+            Cpassword = adat[0][1]
+            pos = adat[0][2]
+            MaxHp = adat[0][3]
+            Hp = adat[0][4]
+            Sgth = adat[0][5]
+            Def = adat[0][6]
+            CAtk = adat[0][7]
+            Cd = adat[0][8]
+            Cr = adat[0][9]
+            Speed = adat[0][10]
+            Dodge = adat[0][11]
+            UltCost = adat[0][12]
+            helmet = adat[0][13]
+            chestplate = adat[0][14]
+            leggings = adat[0][15]
+            boots = adat[0][16]
+            charm = adat[0][17]
+            Energy = adat[0][18]
+            active = adat[0][19]
+        })
+    })
+
     elerheto()
 }
 var Offset = function(element) {
@@ -748,6 +782,20 @@ let letterByLetter = function(target, message, index, interval) {
       }, interval);
     }
   }
+  function save(){
+    var list = [Cname, Cpassword, pos, MaxHp, Hp, Sgth, Def, CAtk, Cd, Cr, Speed, Dodge, UltCost, helmet, chestplate, leggings, boots, charm, Energy, active]
+    var joined = list.join(",");
+    var jsonString = JSON.stringify(joined);
+    console.log(jsonString)
+    $.ajax({
+        type: "POST",
+        url: "save.php",
+        data: {data : jsonString}, 
+        success: function(response){
+            console.log(response);
+        }
+    });
+}
 
 //MAIN
 ShowMap()
