@@ -1,0 +1,110 @@
+treasure: armor pieces/weapons/instant use potions
+villages: talk to villagers, meet love interest
+caves: find some food --> hp +/-
+magic mountain stream: ulti cost-- and speed++
+mountain air: strength++
+
+
+kell most: stats php segítségével map.js vátozóba adat posttal
+
+        console.log(Cname)
+        console.log(Cpassword)
+        console.log(pos)
+        console.log(MaxHp)
+        console.log(Hp)
+        console.log(Sgth)
+        console.log(Def)
+        console.log(CAtk)
+        console.log(Cd)
+        console.log(Cr)
+        console.log(Speed)
+        console.log(Dodge)
+        console.log(UltCost)
+        console.log(helmet)
+        console.log(chestplate)
+        console.log(leggings)
+        console.log(boots)
+        console.log(xp)
+        console.log(charm)
+        console.log(Energy)
+        console.log(active)
+
+    while($row = mysqli_fetch_all($results)) {
+        $accounts = $row;
+    }
+
+    //innen
+let enemyHP = 1000
+let TurnCount = 1
+let UsedInLastTurn = false
+let fightTriggerVar = false
+let isPlaying = false
+
+//base stats
+let Cname
+let Cpassword
+let pos = 0
+let MaxHp
+let Hp
+let Sgth //atk % szoró
+let Def
+let CAtk
+let Cd //% szoró
+let Cr 
+let Speed
+let Dodge //%szorzó
+let UltCost//max cost
+let helmet
+let chestplate
+let leggings
+let boots
+let charm
+let Energy
+let active
+
+
+
+/showmap
+
+$(() => {
+        data = {x: Math.round(Math.random()*10+1)}
+        $.post("/rpg/game/stats.php", data, (res) => {
+            var adat = JSON.parse(res)
+            console.log(adat)
+            Cname = adat[0][0]
+            Cpassword = adat[0][1]
+            pos = adat[0][2]
+            MaxHp = adat[0][3]
+            Hp = adat[0][4]
+            Sgth = adat[0][5]
+            Def = adat[0][6]
+            CAtk = adat[0][7]
+            Cd = adat[0][8]
+            Cr = adat[0][9]
+            Speed = adat[0][10]
+            Dodge = adat[0][11]
+            UltCost = adat[0][12]
+            helmet = adat[0][13]
+            chestplate = adat[0][14]
+            leggings = adat[0][15]
+            boots = adat[0][16]
+            charm = adat[0][17]
+            Energy = adat[0][18]
+            active = adat[0][19]
+        })
+    })
+
+function save(){
+    var list = [Cname, Cpassword, pos, MaxHp, Hp, Sgth, Def, CAtk, Cd, Cr, Speed, Dodge, UltCost, helmet, chestplate, leggings, boots, charm, Energy, active]
+    var joined = list.join(",");
+    var jsonString = JSON.stringify(joined);
+    console.log(jsonString)
+    $.ajax({
+        type: "POST",
+        url: "save.php",
+        data: {data : jsonString}, 
+        success: function(response){
+            console.log(response);
+        }
+    });
+}
