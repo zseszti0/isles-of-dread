@@ -18,20 +18,29 @@
     <audio src="login.mp3" id="music" loop></audio>
     <div id="battlefield">
         <img id="bg" src="">
-        <button onclick="BattleStart()" id="fightButton">FIGHT</button>
-        <h2 id="Cname"></h2>
-        <h2 id="CHP"></h2>
+        <div class="sword" id="sword1"></div>
+        <div class="sword" id="sword2"></div>
+        <button onclick="BattleStart()" id="fightButton"></button>
+        <div class="battleElements" id="skillBc"></div>
+        <h2 class="battleElements" id="Cname"></h2>
+        <h2 class="battleElements" id="energy"></h2>
+        <h2 class="battleElements" id="cHpText"></h2>
+        <div class="battleElements"id="cMaxHp"></div>
+        <div class="battleElements" id="cHp"></div>
+
         <img id="protog" src="knight/Knight_1/Protect.png">
         <img id="enemy" src="">
         <button onclick="information()" id="infoButton" ></button>
-        <h2 id="enemyHP"></h2>
-
-        <button id="skill1" onclick="skill1()" ></button>
-        <button id="skill2" onclick="skill2()" ></button>
-        <button id="skill3" onclick="skill3()" ></button>
         
-        <div><img id="skill3CD" src="skill3CD.png"></div>
-        <h2 id="energy"></h2>
+        <h2 class="battleElements" id="eHpText"></h2>
+        <div class="battleElements"id="eMaxHp"></div>
+        <div class="battleElements" id="enemyHp"></div>
+
+        <button class="battleElements" id="skill1" onclick="skill1()" ></button>
+        <button class="battleElements" id="skill2" onclick="skill2()" ></button>
+        <button class="battleElements" id="skill3" onclick="skill3()" ></button>
+        
+        <div><img class="battleElements" id="skill3CD" src="skill3CD.png"></div>
         <div id="dialougeBox"></div>
         <h2 id="story"></h2>
         <img id="fight" src="fight.png">
@@ -118,7 +127,7 @@
         <div id="tileText"></div>
         <div id="charInfoText"></div>
 
-        <img id="mapCinematic" src="backgrounds/infoOveray.png">
+        <img id="mapCinematic" src="backgrounds/infoOveray.png" onclick="document.getElementById('charInfo').style.display = 'none'; document.getElementById('mapCinematic').style.display = 'none' ">
         <div id="charInfo" onclick="document.getElementById('charInfo').style.display = 'none'; document.getElementById('mapCinematic').style.display = 'none' ">
             <div class="tableInfo" id="tableCharName"></div>
             <div class="tableInfo" id="tablePortrait" title="Very Handsome"></div>

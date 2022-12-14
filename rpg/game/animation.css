@@ -1,3 +1,13 @@
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 @keyframes dialBox {
     0% {
         display: block;
@@ -21,6 +31,88 @@
     100% {
         display: block;
         opacity: 1;
+    }
+}
+@keyframes dialKi {
+    0% {
+        opacity: 1;
+    }
+    49% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    79% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+@keyframes fightXD {
+    0% {
+        transform: scale(0.4);
+        opacity: 1;
+        top: 0vw;
+    }
+    80% {
+        transform: scale(1.2);
+        opacity: 1;
+        top: 20vw;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        top: 16vw;
+    }
+}
+@keyframes whiteFadeIn {
+    0% {
+        display: block;
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    100% {
+        display: block;
+        opacity: 0;
+    }
+}
+@keyframes sword1 {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+        top: 4vw;
+        left: 0vw;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        top: 14vw;
+        left: 31vw;
+    }
+}
+@keyframes sword2 {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+        top: 4vw;
+        left: 64vw;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        top: 14vw;
+        left: 33vw;
     }
 }
 
@@ -155,12 +247,16 @@
 }
 
 @keyframes Attack2 {
-    20% {
+    0% {
         left: 8vw;
+        content: url("knight/Knight_1/Attack1.png");
+    }
+    20% {
+        left: 12vw;
         content: url("knight/Knight_1/Attack21.png");
     }
     40% {
-        left: 12vw;
+        left: 18vw;
         content: url("knight/Knight_1/Attack22.png");
     }
     60% {
@@ -176,3 +272,12 @@
         content: url("knight/Knight_1/Protect.png");
     }
 }
+@keyframes semmi {
+    0% {
+        left: 7vw;
+    }
+    100% {
+        left: 8vw;
+    }
+}
+

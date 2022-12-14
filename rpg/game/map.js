@@ -1,15 +1,15 @@
 
-let pos = 1
+let pos = 0
 let enemyHP = 1000
-let TurnCount = 0
+let TurnCount = 1
 let UsedInLastTurn = false
 let fightTriggerVar = false
 let isPlaying = false
 
 //base stats
-let Cname = "Barni a hős"
+let Cname = "Barnixx"
 let CAtk = 130
-let Hp = 600
+let Hp = 400
 let MaxHp = 1000
 let Def = 10
 let Sgth = 1 //atk % szoró
@@ -233,14 +233,14 @@ function FightTrigger(tf)
     else{
         document.getElementById("yes").style.display = "none"
         document.getElementById("no").style.display = "none"
-    }
-    
+    }  
 }
 
 function MainE (holVagyok)
 {
     document.getElementById("dialougeBox2").style.display = "block"
     document.getElementById("story2").style.display = "block"
+    document.getElementById("story2").innerHTML = ""
     //document.getElementById("story2").innerHTML = "Go into the Magic Forest?"
 
     document.getElementById("yes").style.display = "block"
@@ -265,17 +265,28 @@ function MainE (holVagyok)
 function LoadSceneE(holVagyok)
 {   
     //setTimeout(() => {document.getElementById("fightButton").style.display = "block"}, 3000)
+    document.getElementById("story").innerHTML = ""
     pos = holVagyok
     document.getElementById("container").style.display = "none"
     //map bejon 
     document.getElementById("battlefield").style.display = "block"
     document.getElementById("dialougeBox").style.display = "none"
 
+    document.getElementById("sword1").style.display = "none"
+    document.getElementById("sword2").style.display = "none"
+    document.getElementById("fightButton").style.display = "none"
+
     //DIAL BOX
+    document.getElementById("dialougeBox").style.animation = "dialBox 1s reverse forwards"
     setTimeout(() => {document.getElementById("dialougeBox").style.display = "block"}, 2000);
-    setTimeout(() => {letterByLetter("#story","AN enemy appears lets fight it!!",0,20)}, 3000)
+    setTimeout(() => {letterByLetter("#story","AN enemy appears. Let's fight it!!",0,20)}, 3000)
     
     //document.getElementById("dialogueBox").style.animation = "dialBox 1s forwards"
+    
+    //fightAnim()
+    //restore before BUILD
+    setTimeout(() => {fightAnim()}, 5000)
+
 
     //fighr scene clickables
     //!!
@@ -288,7 +299,25 @@ function LoadSceneE(holVagyok)
     document.getElementById("protog").style.animation= "Run 2s forwards"
 
     document.getElementById("bg").src = "backgrounds/"+holVagyok+".png"
+
+    document.querySelectorAll(".battleElements").forEach(image => {image.style.display = "none"})
     LoadEnemy() 
+}
+function fightAnim() {
+    document.getElementById("dialougeBox").style.animation = "dialKi 0.4s forwards ease-in"
+    setTimeout(() => {document.getElementById("story").innerHTML = ""}, 400);
+
+    document.getElementById("sword1").style.display = "block"
+    document.getElementById("sword2").style.display = "block"
+    document.getElementById("fightButton").style.display = "block"
+    document.getElementById("sword1").style.opacity = 0
+    document.getElementById("sword2").style.opacity = 0
+    document.getElementById("fightButton").style.opacity = 0
+
+    document.getElementById("sword1").style.animation = "sword1 0.4s forwards ease-in"
+    document.getElementById("sword2").style.animation = "sword2 0.4s forwards ease-in"
+    document.getElementById("fightButton").style.animation = "fightXD 0.3s forwards ease-in"
+    
 }
 
 function randomNum(start,end)
@@ -346,25 +375,36 @@ function LoadEnemy()
 
 function BattleStart()
 {
+    TurnCount = 1
+    console.log("battle started owo")
     document.getElementById("fightButton").style.display = "none"
-    document.getElementById("fight").style.display = "block"
-    document.getElementById("fight").style.animation= "fightAnim 2s forwards"
-    //document.getElementById("fight").style.display = "none"
+    document.getElementById("sword1").style.display = "none"
+    document.getElementById("sword2").style.display = "none"
 
-    document.getElementById("dialougeBox").style.display = "none"
-    document.getElementById("story").style.display = "none"
+    document.getElementById("cinematic").src = "backgrounds/white.png"
+    document.getElementById("cinematic").style.display = "block"
+    //document.getElementById("cinematic").style.display = "block"
+    document.getElementById("cinematic").style.animation = "whiteFadeIn 3s forwards"
+    setTimeout(() => {document.getElementById("cinematic").style.display = "none"}, 3000);
+    console.log("overlay")
+    document.getElementById("dialougeBox").style.opacity = 0
+    document.getElementById("dialougeBox").style.animation = "dialBox 1s 2s reverse forwards"
+    setTimeout(() => {letterByLetter("#story","The fight has started! You attack first.",0,20)}, 3000)
 
-    document.getElementById("skill1").style.display = "block"
-    document.getElementById("skill2").style.display = "block"
-    document.getElementById("skill3").style.display = "block"
+    //document.getElementById("dialogueBox").style.animation = "dialBox 1s forwards"
 
-    document.getElementById("skill3CD").style.display = "block"
-    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
+    document.querySelectorAll(".battleElements").forEach(image => {image.style.display = "block"})
+
+    energyLvl()
     
-    document.getElementById("enemyHP").innerHTML = enemyHP
+    enemyHP = enemies[curEnemy].Hp
+    document.getElementById("eHpText").innerHTML = enemies[curEnemy].Hp
+    document.getElementById("cHpText").innerHTML = "Health: " + Hp + "/" + MaxHp
     document.getElementById("Cname").innerHTML = Cname
-    document.getElementById("CHP").innerHTML = Hp
-    document.getElementById("energy").innerHTML = Energy
+    //document.getElementById("cMaxHp").title = Hp + "/" + MaxHp
+
+    document.getElementById("cHp").style.backgroundSize = (13*Hp/MaxHp + "vw 1.4vw")
+    document.getElementById("energy").innerHTML = "Energy: " + Energy
     turn()
 
 }
@@ -398,10 +438,16 @@ function information()
 
 function turn()
 {
-    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
-    
+    if (TurnCount != 1)
+    {
+        document.getElementById("story").style.fontSize = "5vmin"
+        letterByLetter("#story","Turn "+TurnCount+". You attack first.",0,20)
+        document.getElementById("story").style.fontSize = "4vmin"
+    }
+
     //SKILL 1
     CoolDown(1,false)
+    CoolDown(2,false)
     console.log("skill1 van")
     //SKILL2
     if(UsedInLastTurn)
@@ -421,7 +467,6 @@ function turn()
     }
     else {CoolDown(3,true)}
 
-    document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
     TurnCount += 1
 }
 
@@ -446,56 +491,89 @@ function skill2(){
     console.log("anim1")
 
     var crit =  Math.floor(Math.random() * 10) + 1;
+    var dmg
     if (Cr >= crit)
     {
         enemyHP -= (CAtk*Sgth)*(1000/enemyHP)*Cd
         console.log((1000/enemyHP))
         Energy += 30
         console.log("crit")
+        dmg = (CAtk*Sgth)*(1000/enemyHP)*Cd
     }
     else
     {
-        enemyHP -= C
-        Atk*Sgth*(1000/enemyHP)
+        enemyHP -= CAtk*Sgth*(1000/enemyHP)
         console.log((5000/enemyHP))
         Energy += 20
+        dmg = CAtk*Sgth*(1000/enemyHP)
     }
+    dmg = Math.round(dmg)
+    enemyHP = Math.round(enemyHP)
 
-    enemyHP = Math.round((enemyHP)*100)/100
-    document.getElementById("enemyHP").innerHTML = enemyHP
-    document.getElementById("energy").innerHTML = Energy
+    document.getElementById("enemyHp").style.backgroundSize = (12*enemyHP/1000 + "vw 1.4vw")
+    energyLvl()
+
+    document.getElementById("eHpText").innerHTML = enemyHP
+    document.getElementById("energy").innerHTML = "Energy: " + Energy
     if (enemyHP<0)
     {
         ShowMap()
     }
-    setTimeout(() => {enemyTurn()}, 3000)
+    setTimeout(() => {enemyTurn()}, 5000)
     console.log("enemy turn")
+    letterByLetter("#story",Cname + " used [Double Death] dealing " + dmg + " damage to the enemy.",0,20)
+    CoolDown(1,true)
+    CoolDown(2,true)
 }
 function skill1()
 {
     UsedInLastTurn = false
+    document.getElementById("protog").style.animation = 'none';
     document.getElementById("protog").style.animation= "Attack 2s forwards"
     var crit =  Math.floor(Math.random() * 10) + 1;
+    var dmg = 0
     if (Cr >= crit)
     {
         enemyHP -= CAtk*Sgth*Cd
         Energy += 30
         console.log("crit")
-
+        dmg = CAtk*Sgth*Cd
+        
     }
     else
     {
         enemyHP -= CAtk*Sgth
         Energy += 20
+        dmg = CAtk*Sgth
     }
-    document.getElementById("enemyHP").innerHTML = enemyHP
-    document.getElementById("energy").innerHTML = Energy
+    dmg = Math.round((dmg)*100)/100
+    document.getElementById("eHpText").innerHTML = enemyHP
+    document.getElementById("enemyHp").style.backgroundSize = (12*enemyHP/1000 + "vw 1.4vw")
+    energyLvl()
+    document.getElementById("energy").innerHTML = "Energy: " + Energy
     if (enemyHP<0)
     {
         ShowMap()
     }
-    setTimeout(() => {enemyTurn()}, 3000)
+    setTimeout(() => {enemyTurn()}, 4000)
     console.log("enemy turn")
+    letterByLetter("#story",Cname + " used [Sweeping Swipe] dealing " + dmg + " damage to the enemy.",0,20)
+    CoolDown(1,true)
+    CoolDown(2,true)
+}
+function skill3()
+{
+    UsedInLastTurn = false
+    console.log("skill3")
+    enemyTurn()
+}
+function energyLvl() {
+    if (Energy >= UltCost) {
+        document.getElementById("skill3CD").style.height = "0vh"
+    }
+    else {
+        document.getElementById("skill3CD").style.height = (11*(UltCost-Energy)/100+"vh")
+    }
 }
 
 function enemyTurn()
@@ -503,7 +581,7 @@ function enemyTurn()
     Hp -= 10
     //document.getElementById("enemy").style.animation= "EnemyAttack 2s forwards"
     //document.getElementById("protog").style.animation= "Defend 2s forwards"
-    document.getElementById("CHP").innerHTML = Hp
+    document.getElementById("cHpText").innerHTML = "Health: " + Hp + "/" + MaxHp
     turn()
 }
 
@@ -580,13 +658,6 @@ function elerheto() {
     console.log("sarkany done")
 }
 
-function skill3()
-{
-    UsedInLastTurn = false
-    console.log("skill3")
-    enemyTurn()
-}
-
 function tileText(holVagyok){
     document.getElementById("splash").src = ("backgrounds/" + holVagyok + ".png")
     document.getElementById("tileText").style.display = "block"
@@ -625,6 +696,7 @@ function charInfo()
     document.getElementById("tableHpBar").style.backgroundSize = (320*Hp/MaxHp + "px 20px")
     document.getElementById("tableHpBar").title = Hp + "/" + MaxHp
 }
+
 function noCharInfo(){document.getElementById("charInfoText").style.display = "none"
 document.getElementById("splash").src = ("backgrounds/emptySplash.png")}
 

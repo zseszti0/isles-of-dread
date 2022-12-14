@@ -11,7 +11,7 @@
 body {
     font-size: larger;
     cursor: default;
-    background: black;
+    background: url(backgrounds/wood.jpg) no-repeat;
     background-size: 100%;
 }
 
@@ -336,6 +336,7 @@ body {
     position: relative;
     display: inline-block;
     margin: auto;
+    width: 70vw;
 }
 
 @keyframes transB {
@@ -444,11 +445,46 @@ body {
     }
 }
 
-#enemyHP {
+#eHpText {
     position: absolute;
-    top: 200px;
-    left: 600px;
     font-family: 'pixelfont';
+    left: 45vw;
+    top: 15vw;
+    font-size: xx-large;
+    color: black;
+    text-shadow: -1px -1px 0 rgb(237, 239, 231), 1px -1px 0 rgb(237, 239, 231), -1px 1px 0 rgb(237, 239, 231), 1px 1px 0 rgb(237, 239, 231);
+}
+#eMaxHp {
+    top: 19vw;
+    left: 45vw;
+    position: absolute;
+    background: url("Hp.png") no-repeat;
+    background-size: 100%;
+    height: 4vw;
+    width: 13vw;
+}
+#enemyHp {
+    top: 18.8vw;
+    left: 44vw;
+    position: absolute;
+    background: url("HpBar.png") no-repeat;
+    height: 1.4vw;
+    width: 12vw;
+}
+
+
+#skillBc {
+    position: absolute;
+    top: 8vw;
+    left: 1vw;
+    height: 60vh;
+    width: 23vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.774));
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+        
 }
 
 #skill1 {
@@ -461,6 +497,10 @@ body {
     background-size: 7vh 7vh;
     border: none;
 }
+#skill1:hover {
+    filter: hue-rotate(3.142rad);
+}
+
 #skill2 {
     height: 7vh;
     width: 7vh;
@@ -490,49 +530,103 @@ body {
 }
 
 #energy {
-    top: 250px;
-    left: 100px;
+    top: 15vw;
+    left: 1.5vw;
     position: absolute;
     font-family: 'pixelfont';
+    font-size: x-large;
+    color: rgb(126, 179, 115);
 }
 
 #Cname {
-    top: 200px;
-    left: 100px;
+    top: 14vw;
+    left: 14vw;
     position: absolute;
-    font-family: 'pixelfont';
+    font-family: 'descFont';
+    font-size: xx-large;
+    text-align: center;
+    width: 11vw;
+    text-shadow: -1px -1px 0 rgb(237, 239, 231), 1px -1px 0 rgb(237, 239, 231), -1px 1px 0 rgb(237, 239, 231), 1px 1px 0 rgb(237, 239, 231);
+
 }
-#CHP {
-    top: 250px;
-    left: 100px;
+#cMaxHp {
+    top: 19vw;
+    left: 13vw;
+    position: absolute;
+    background: url("Hp.png") no-repeat;
+    background-size: 100%;
+    height: 4vw;
+    width: 13vw;
+}
+#cHp {
+    top: 18.9vw;
+    left: 13vw;
+    position: absolute;
+    background: url("HpBar.png") no-repeat;
+    height: 1.4vw;
+    width: 13vw;
+}
+#cHpText {
+    top: 17.5vw;
+    left: 1.5vw;
     position: absolute;
     font-family: 'pixelfont';
+    font-size: x-large;
+    color: rgb(179, 115, 115);
 }
 
+
 #fightButton {
-    top: 20vw;
-    left: 35vw;
+    top: 16vw;
+    left: 32vw;
     position: absolute;
+    background: url("fightButtonNormal.png") no-repeat;
+    background-size: 100%;
+    width: 150px;
+    height: 94px;
+    border: none;
+}
+#fightButton:hover {
+    background: url("fightButton.png") no-repeat;
+    background-size: 100%;
+    transform: scale(1.2);
+}
+.sword {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+}
+#sword1 {
+    top: 4vw;
+    left: 0vw;
+    background: url("sword1.png") no-repeat;
+    background-size: 100%;
+}
+#sword2 {
+    background: url("sword2.png") no-repeat;
+    background-size: 100%;
+    top: 4vw;
+    left: 64vw;
 }
 
 #dialougeBox {
     position: absolute;
-    left: 5vw;
-    right: 5vw;
-    bottom: 5vh;
+    left: 13vw;
+    bottom: 3vh;
     height: 7vh;
-    width: 60vw;
+    width: 48vw;
     text-align: center;
     background-color: rgba(240, 248, 255, 0.733);
     border: 3px solid black;
     font-family: 'pixelfont';
-    animation: dialBox 1s reverse forwards;
-    animation-delay: block;
 }
 #story {
     position: absolute;
     text-align: left;
-    left: 25vw;
-    bottom: 4vh;
+    left: 13vw;
+    bottom: 1vh;
     font-family: 'pixelfont';
+    width: 48vw;
+    text-align: center;
+    font-size: 4vmin;
 }
